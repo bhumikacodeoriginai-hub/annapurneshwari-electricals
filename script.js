@@ -160,12 +160,16 @@ let currentLang = 'en';
 function applyLanguage(lang, initial){
   const T = (typeof TRANSLATIONS!=='undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : (typeof TRANSLATIONS!=='undefined' ? TRANSLATIONS.en : null);
   if(!T) return;
+  if(!initial) document.body.classList.add('language-changing');
   currentLang = lang;
   document.documentElement.lang = lang;
   document.documentElement.setAttribute('data-lang', lang);
   translateStatic(T);
   renderDynamic(T);
-  if(!initial) revealDynamicNow();
+  if(!initial) {
+    revealDynamicNow();
+    window.setTimeout(()=>document.body.classList.remove('language-changing'), 260);
+  }
   const sel = document.getElementById('langSelect');
   if(sel) sel.value = lang;
   try{ localStorage.setItem('siteLang', lang); }catch(e){}
@@ -292,3 +296,56 @@ toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ============ FOOTER YEAR ============ */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+
+
+/* ============ PREMIUM MICRO-INTERACTIONS ============ */
+(function premiumMotion(){
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return;
+
+  // Real-photo hero mosaic follows the pointer very subtly.
+  const visual = document.getElementById('heroVisual');
+  if(visual && finePointer){
+    visual.addEventListener('pointermove', e=>{
+      const r = visual.getBoundingClientRect();
+      const x = (e.clientX-r.left)/r.width-.5;
+      const y = (e.clientY-r.top)/r.height-.5;
+      visual.style.setProperty('--px', `${x*9}px`);
+      visual.style.setProperty('--py', `${y*7}px`);
+    });
+    visual.addEventListener('pointerleave', ()=>{
+      visual.style.setProperty('--px','0px');
+      visual.style.setProperty('--py','0px');
+    });
+  }
+
+  // Delegated spotlight + 3D tilt also works after language re-renders.
+  let activeCard = null;
+  document.addEventListener('pointermove', e=>{
+    const card = e.target.closest('.pcard, .gitem');
+    if(!card) return;
+    activeCard = card;
+    const r = card.getBoundingClientRect();
+    const x = e.clientX-r.left;
+    const y = e.clientY-r.top;
+    card.style.setProperty('--mx', `${x}px`);
+    card.style.setProperty('--my', `${y}px`);
+    if(finePointer && card.classList.contains('pcard')){
+      const rx = ((y/r.height)-.5)*-3.2;
+      const ry = ((x/r.width)-.5)*4.2;
+      card.style.transform = `perspective(900px) translateY(-7px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    }
+  }, {passive:true});
+  document.addEventListener('pointerout', e=>{
+    const card = e.target.closest('.pcard, .gitem');
+    if(!card || card.contains(e.relatedTarget)) return;
+    if(card.classList.contains('pcard')) card.style.transform='';
+    activeCard = null;
+  }, {passive:true});
+
+  window.addEventListener('blur', ()=>{
+    if(activeCard && activeCard.classList.contains('pcard')) activeCard.style.transform='';
+  });
+})();

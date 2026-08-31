@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -119,8 +119,18 @@
       </div>
 
       <div class="hero__panel reveal">
-        <div class="hero__photo">
-          <img src="assets/solar-home.jpg" alt="Rooftop solar panels installed on a modern home" loading="eager" width="716" height="428" />
+        <div class="hero-visual" id="heroVisual">
+          <span class="hero-visual__orbit hero-visual__orbit--one"></span>
+          <span class="hero-visual__orbit hero-visual__orbit--two"></span>
+          <figure class="hero-visual__main">
+            <img src="assets/solar-home.jpg" alt="Rooftop solar panels installed on a modern home" loading="eager" width="716" height="428" />
+          </figure>
+          <figure class="hero-visual__tile hero-visual__tile--top">
+            <img src="assets/install-solar-fpc.jpg" alt="Solar water heating and heat pump installation" loading="eager" />
+          </figure>
+          <figure class="hero-visual__tile hero-visual__tile--bottom">
+            <img src="assets/water-softener.jpg" alt="Zero B whole-house water treatment installation" loading="eager" />
+          </figure>
           <span class="hero__photo-tag">
             <svg viewBox="0 0 24 24"><path d="M4 3h16l2 9H2L4 3zm-.6 11h17.2l-1 3H4.4l-1-3zM7 19h10v2H7v-2z"/></svg>
             <span data-i18n="hero.photoTag">Rooftop Solar Installations</span>
