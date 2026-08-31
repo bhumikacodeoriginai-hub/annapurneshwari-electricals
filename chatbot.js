@@ -54,7 +54,7 @@
       fallback: 'I can help with <strong>products, services, prices, location</strong> and <strong>contact</strong>. You can also chat with us directly on WhatsApp.',
       thanks: 'You\u2019re welcome! \uD83D\uDE4F Anything else I can help you with?',
       quoteNudge: 'Would you like a free quote for this?',
-      waLabel: 'WhatsApp', callLabel: 'Call', mapLabel: 'Directions', instaLabel: 'Instagram', instaReply: 'See our latest videos, reels and installation updates on Instagram — <strong>@lo.kesh5907</strong>. Tap Follow to stay updated.'
+      waLabel: 'WhatsApp', callLabel: 'Call', mapLabel: 'Directions', waMsg: 'Hello Sri Annapurneshwari Electricals \uD83D\uDC4B I found you on your website and would like to enquire.', waAsked: 'My question:', instaLabel: 'Instagram', instaReply: 'See our latest videos, reels and installation updates on Instagram — <strong>@lo.kesh5907</strong>. Tap Follow to stay updated.'
     },
     kn: {
       launch: 'ಚಾಟ್ ಮಾಡಿ', title: 'ಸಹಾಯ ಸಹಾಯಕ', status: 'ಆನ್‌ಲೈನ್ · ನಾವು ಬೇಗ ಉತ್ತರಿಸುತ್ತೇವೆ',
@@ -78,7 +78,7 @@
       fallback: 'ನಾನು <strong>ಉತ್ಪನ್ನಗಳು, ಸೇವೆಗಳು, ಬೆಲೆ, ಸ್ಥಳ</strong> ಮತ್ತು <strong>ಸಂಪರ್ಕ</strong>ದ ಬಗ್ಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. WhatsApp ನಲ್ಲಿಯೂ ಚಾಟ್ ಮಾಡಬಹುದು.',
       thanks: 'ಸ್ವಾಗತ! \uD83D\uDE4F ಇನ್ನೇನಾದರೂ ಸಹಾಯ ಬೇಕೇ?',
       quoteNudge: 'ಇದಕ್ಕೆ ಉಚಿತ ಕೊಟೇಶನ್ ಬೇಕೇ?',
-      waLabel: 'WhatsApp', callLabel: 'ಕರೆ', mapLabel: 'ದಾರಿ', instaLabel: 'ಇನ್‌ಸ್ಟಾಗ್ರಾಂ', instaReply: 'ನಮ್ಮ ಇತ್ತೀಚಿನ ವೀಡಿಯೊ, ರೀಲ್ಸ್ ಮತ್ತು ಅಳವಡಿಕೆ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಗ್ರಾಂನಲ್ಲಿ ನೋಡಿ — <strong>@lo.kesh5907</strong>.'
+      waLabel: 'WhatsApp', callLabel: 'ಕರೆ', mapLabel: 'ದಾರಿ', waMsg: 'ನಮಸ್ಕಾರ, ಶ್ರೀ ಅನ್ನಪೂರ್ಣೇಶ್ವರಿ ಎಲೆಕ್ಟ್ರಿಕಲ್ಸ್ \uD83D\uDC4B ನಿಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ನಿಂದ ವಿಚಾರಿಸಲು ಬಯಸುತ್ತೇನೆ.', waAsked: 'ನನ್ನ ಪ್ರಶ್ನೆ:', instaLabel: 'ಇನ್‌ಸ್ಟಾಗ್ರಾಂ', instaReply: 'ನಮ್ಮ ಇತ್ತೀಚಿನ ವೀಡಿಯೊ, ರೀಲ್ಸ್ ಮತ್ತು ಅಳವಡಿಕೆ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಗ್ರಾಂನಲ್ಲಿ ನೋಡಿ — <strong>@lo.kesh5907</strong>.'
     },
     hi: {
       launch: 'चैट करें', title: 'सहायता सहायक', status: 'ऑनलाइन · हम जल्दी जवाब देते हैं',
@@ -102,7 +102,7 @@
       fallback: 'मैं <strong>उत्पाद, सेवाएँ, कीमत, स्थान</strong> और <strong>संपर्क</strong> में मदद कर सकता हूँ। आप सीधे WhatsApp पर भी चैट कर सकते हैं।',
       thanks: 'आपका स्वागत है! \uD83D\uDE4F और कुछ मदद चाहिए?',
       quoteNudge: 'क्या आप इसके लिए मुफ़्त कोटेशन चाहते हैं?',
-      waLabel: 'WhatsApp', callLabel: 'कॉल', mapLabel: 'रास्ता', instaLabel: 'इंस्टाग्राम', instaReply: 'हमारे नए वीडियो, रील्स और इंस्टॉलेशन अपडेट इंस्टाग्राम पर देखें — <strong>@lo.kesh5907</strong>.'
+      waLabel: 'WhatsApp', callLabel: 'कॉल', mapLabel: 'रास्ता', waMsg: 'नमस्ते, श्री अन्नपूर्णेश्वरी इलेक्ट्रिकल्स \uD83D\uDC4B आपकी वेबसाइट से पूछताछ करना चाहता हूँ।', waAsked: 'मेरा सवाल:', instaLabel: 'इंस्टाग्राम', instaReply: 'हमारे नए वीडियो, रील्स और इंस्टॉलेशन अपडेट इंस्टाग्राम पर देखें — <strong>@lo.kesh5907</strong>.'
     },
     te: {
       launch: 'చాట్ చేయండి', title: 'సహాయ సహాయకుడు', status: 'ఆన్‌లైన్ · మేము త్వరగా స్పందిస్తాము',
@@ -126,7 +126,7 @@
       fallback: 'నేను <strong>ఉత్పత్తులు, సేవలు, ధర, స్థానం</strong> మరియు <strong>సంప్రదింపు</strong>లో సహాయం చేయగలను. మీరు నేరుగా WhatsAppలో కూడా చాట్ చేయవచ్చు.',
       thanks: 'స్వాగతం! \uD83D\uDE4F ఇంకేమైనా సహాయం కావాలా?',
       quoteNudge: 'దీనికి ఉచిత కొటేషన్ కావాలా?',
-      waLabel: 'WhatsApp', callLabel: 'కాల్', mapLabel: 'దారి', instaLabel: 'ఇన్‌స్టాగ్రామ్', instaReply: 'మా తాజా వీడియోలు, రీల్స్ మరియు ఇన్‌స్టాలేషన్ అప్‌డేట్‌లను ఇన్‌స్టాగ్రామ్‌లో చూడండి — <strong>@lo.kesh5907</strong>.'
+      waLabel: 'WhatsApp', callLabel: 'కాల్', mapLabel: 'దారి', waMsg: 'నమస్తే, శ్రీ అన్నపూర్ణేశ్వరి ఎలక్ట్రికల్స్ \uD83D\uDC4B మీ వెబ్‌సైట్ నుండి విచారించాలనుకుంటున్నాను.', waAsked: 'నా ప్రశ్న:', instaLabel: 'ఇన్‌స్టాగ్రామ్', instaReply: 'మా తాజా వీడియోలు, రీల్స్ మరియు ఇన్‌స్టాలేషన్ అప్‌డేట్‌లను ఇన్‌స్టాగ్రామ్‌లో చూడండి — <strong>@lo.kesh5907</strong>.'
     },
     ta: {
       launch: 'அரட்டை', title: 'உதவி உதவியாளர்', status: 'ஆன்லைன் · விரைவில் பதிலளிப்போம்',
@@ -150,7 +150,7 @@
       fallback: 'நான் <strong>தயாரிப்புகள், சேவைகள், விலை, இடம்</strong> மற்றும் <strong>தொடர்பு</strong> குறித்து உதவ முடியும். நேரடியாக WhatsAppலும் அரட்டையடிக்கலாம்.',
       thanks: 'நல்வரவு! \uD83D\uDE4F வேறு ஏதேனும் உதவி வேண்டுமா?',
       quoteNudge: 'இதற்கு இலவச மதிப்பீடு வேண்டுமா?',
-      waLabel: 'WhatsApp', callLabel: 'அழை', mapLabel: 'வழி', instaLabel: 'இன்ஸ்டாகிராம்', instaReply: 'எங்கள் சமீபத்திய வீடியோக்கள், ரீல்ஸ் மற்றும் நிறுவல் புதுப்பிப்புகளை இன்ஸ்டாகிராமில் காணுங்கள் — <strong>@lo.kesh5907</strong>.'
+      waLabel: 'WhatsApp', callLabel: 'அழை', mapLabel: 'வழி', waMsg: 'வணக்கம், ஸ்ரீ அன்னபூர்ணேஸ்வரி எலக்ட்ரிக்கல்ஸ் \uD83D\uDC4B உங்கள் இணையதளத்திலிருந்து விசாரிக்க விரும்புகிறேன்.', waAsked: 'எனது கேள்வி:', instaLabel: 'இன்ஸ்டாகிராம்', instaReply: 'எங்கள் சமீபத்திய வீடியோக்கள், ரீல்ஸ் மற்றும் நிறுவல் புதுப்பிப்புகளை இன்ஸ்டாகிராமில் காணுங்கள் — <strong>@lo.kesh5907</strong>.'
     }
   };
 
@@ -245,10 +245,11 @@
 
   var launch, panel, body, chipsBar, input, form, titleEl, statusEl, closeBtn, launchLabel;
   var greeted = false;
+  var lastQuery = '';
 
   function linkHtml(type) {
     var u = UI[lang()];
-    if (type === 'wa') return '<a class="is-wa" href="' + wa('') + '" target="_blank" rel="noopener">' + ICON.wa + u.waLabel + '</a>';
+    if (type === 'wa') { var m = (u.waMsg || '') + (lastQuery ? '\n\n' + (u.waAsked || 'My question:') + ' ' + lastQuery : ''); return '<a class="is-wa" href="' + wa(m) + '" target="_blank" rel="noopener">' + ICON.wa + u.waLabel + '</a>'; }
     if (type === 'call') return '<a class="is-call" href="tel:' + BIZ.tel + '">' + ICON.call + u.callLabel + '</a>';
     if (type === 'map') return '<a class="is-map" href="' + BIZ.maps + '" target="_blank" rel="noopener">' + ICON.map + u.mapLabel + '</a>';
     if (type === 'insta') return '<a class="is-insta" href="' + BIZ.instagram + '" target="_blank" rel="noopener">' + ICON.insta + (u.instaLabel || 'Instagram') + '</a>';
@@ -292,6 +293,7 @@
   function sendUser(text) {
     text = text.trim();
     if (!text) return;
+    lastQuery = text;
     addMsg('user', esc(text));
     botRespond(matchIntent(text));
   }
@@ -374,7 +376,9 @@
       var btn = e.target.closest('[data-intent]');
       if (!btn) return;
       var u2 = UI[lang()];
-      addMsg('user', esc(u2.chips[btn.dataset.intent] || btn.textContent));
+      var label = u2.chips[btn.dataset.intent] || btn.textContent;
+      lastQuery = label;
+      addMsg('user', esc(label));
       botRespond(btn.dataset.intent);
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel(); });

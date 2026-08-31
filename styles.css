@@ -751,20 +751,24 @@ body{text-rendering:optimizeLegibility}
 /* ============================================================
    OUR SERVICES — MOVING ANIMATIONS (reduced-motion safe)
    ============================================================ */
-.journey-step__number{position:relative}
+/* Cycling highlight that moves through the steps: 1 -> 2 -> 3 -> 4 -> loop (JS adds .is-active) */
+.journey-step__number{position:relative;transition:transform .45s ease,box-shadow .45s,background .45s,border-color .45s,color .45s}
+.journey-step h3{transition:color .4s}
+.journey.js-cycle .journey-step:first-child .journey-step__number{background:#fff;border-color:var(--gold-pale);color:var(--ink)}
+.journey-step.is-active .journey-step__number{background:var(--gold-grad);border-color:var(--gold);color:#3a2500;transform:scale(1.14);box-shadow:0 0 0 8px #fff,0 14px 30px rgba(232,169,40,.5)}
+.journey-step.is-active h3{color:var(--gold-deep)}
+.service-card{transition:background .4s,box-shadow .3s,transform .25s,border-color .28s}
+.service-card.is-active{background:linear-gradient(135deg,#fff,#fbf1dc)}
+.service-card.is-active>span{color:var(--red)}
+.service-card.is-active h3{color:var(--gold-deep)}
+.service-card.is-active::after{color:var(--gold)}
 @media (prefers-reduced-motion: no-preference){
   /* flowing connector line between the steps */
   .journey::before{background:linear-gradient(90deg,var(--gold-pale),var(--gold),var(--red),var(--gold),var(--gold-pale));background-size:220% 100%;animation:journeyFlow 4.5s linear infinite}
   @keyframes journeyFlow{from{background-position:0 0}to{background-position:220% 0}}
-  /* gently floating step badges, staggered */
-  .journey-step__number{animation:stepFloat 3.6s ease-in-out infinite}
-  .journey-step:nth-child(2) .journey-step__number{animation-delay:.35s}
-  .journey-step:nth-child(3) .journey-step__number{animation-delay:.7s}
-  .journey-step:nth-child(4) .journey-step__number{animation-delay:1.05s}
-  @keyframes stepFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-  /* pulsing ring on the first step */
-  .journey-step:first-child .journey-step__number::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--gold);opacity:.6;animation:stepPulse 2.2s ease-out infinite}
-  @keyframes stepPulse{0%{transform:scale(.92);opacity:.6}70%{transform:scale(1.32);opacity:0}100%{opacity:0}}
+  /* pulse ring follows the active step */
+  .journey-step.is-active .journey-step__number::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--gold);animation:stepPulse 1.6s ease-out infinite}
+  @keyframes stepPulse{0%{transform:scale(.9);opacity:.7}70%{transform:scale(1.35);opacity:0}100%{opacity:0}}
   /* service card arrow nudges on hover */
   .service-card:hover::after{animation:arrowNudge .85s ease-in-out infinite}
   @keyframes arrowNudge{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
