@@ -614,3 +614,66 @@ body{text-rendering:optimizeLegibility}
 .email-toast::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--gold-grad);color:#2a1c00;font-size:.7rem;font-weight:900;flex:none}
 .email-toast.show{opacity:1;visibility:visible;transform:translateX(-50%)}
 @media(max-width:680px){.email-toast{bottom:84px}}
+
+
+
+/* ============================================================
+   RED · GOLD · NAVY LUXURY ACCENTS
+   ============================================================ */
+:root{--red:#cf2e42;--red-deep:#8f1d2b;--red-soft:#e5495d;--red-grad:linear-gradient(135deg,#e5495d,#cf2e42 52%,#8f1d2b)}
+
+/* Hero: warm crimson glow blended into the navy overlay */
+.hero__overlay{background:linear-gradient(102deg,rgba(3,12,22,.95) 0%,rgba(9,18,30,.82) 32%,rgba(90,20,30,.44) 74%,rgba(4,16,28,.72) 100%)}
+.hero__overlay::after{background:radial-gradient(58% 60% at 100% 12%,rgba(207,46,66,.36),transparent 60%),linear-gradient(0deg,rgba(4,16,28,.74),transparent 32%)}
+.hero h1{text-shadow:0 1px 0 rgba(0,0,0,.25),0 12px 34px rgba(0,0,0,.42),0 0 34px rgba(207,46,66,.12)}
+.accent-text{filter:drop-shadow(0 6px 16px rgba(232,169,40,.28))}
+
+/* Sector band → deep crimson-to-navy */
+.sector-band{background:linear-gradient(135deg,#8f1d2b 0%,#3a0e16 52%,#08213a 100%)}
+.sector-band::before{background:radial-gradient(circle at 12% 26%,rgba(247,204,107,.18),transparent 26%),radial-gradient(circle at 90% 80%,rgba(207,46,66,.28),transparent 34%)}
+
+/* Red-gold section hairline */
+.solutions::after,.service-section::after,.testimonials::after{background:linear-gradient(90deg,transparent,rgba(207,46,66,.55),rgba(232,169,40,.55),transparent)}
+
+/* Anniversary seal: crimson outer ring for contrast */
+.seal::after{border-color:rgba(207,46,66,.55)}
+
+/* Filter buttons + product number get a red-gold active pop */
+.filter-button.active{background:linear-gradient(135deg,#0d3050,#8f1d2b);box-shadow:0 8px 20px rgba(143,29,43,.28)}
+.product-card:hover .product-card__number{color:#fff;background:var(--red-grad);border-color:transparent}
+
+/* Red button (used for Save Our Contact) */
+.button--red{background:var(--red-grad);color:#fff;box-shadow:0 12px 28px rgba(143,29,43,.36),inset 0 1px 0 rgba(255,255,255,.28)}
+.button--red:hover{box-shadow:0 18px 40px rgba(143,29,43,.5)}
+.button--red svg{fill:currentColor;stroke:none;width:19px;height:19px}
+
+/* Contact actions row */
+.contact-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:30px}
+.contact-actions .directions-link{margin-top:0}
+
+/* ============================================================
+   3D TILT & DEPTH (fine-pointer only, reduced-motion safe)
+   ============================================================ */
+.product-grid,.project-grid{perspective:1500px}
+.product-card,.project-card{transform-style:preserve-3d}
+/* moving glare highlight → 3D sheen */
+.product-card::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:4;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.45),transparent 46%)}
+.project-card__content{transform:translateZ(40px)}
+.product-card__number,.product-card__link{transform:translateZ(30px)}
+.product-card.is-tilting,.project-card.is-tilting{transition:box-shadow .3s,border-color .28s}
+.product-card.is-tilting::after{opacity:1}
+.product-card.is-tilting{box-shadow:0 34px 70px rgba(4,16,28,.22)}
+.project-card.is-tilting{box-shadow:0 34px 70px rgba(0,0,0,.4)}
+@media (prefers-reduced-motion: reduce){
+  .product-card,.project-card{transform:none!important}
+}
+
+/* Subtle 3D depth on major headings */
+.section-heading h2,.story__copy h2,.contact-panel h2{text-shadow:0 1px 0 rgba(4,16,28,.06)}
+.section-heading--light h2,.contact-panel h2{text-shadow:0 2px 0 rgba(0,0,0,.28),0 14px 30px rgba(0,0,0,.25)}
+
+@media(max-width:680px){
+  .contact-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .contact-actions .button--red{width:100%}
+  .contact-actions .directions-link{justify-content:center}
+}
