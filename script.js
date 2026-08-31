@@ -39,14 +39,20 @@ const svg = (p)=>`<svg viewBox="0 0 24 24">${I[p]||I.check}</svg>`;
 const commitments = ['Reliable Products','Trusted Brands','Professional Installation','On-Time Service','Affordable Pricing','Customer First'];
 
 const products = [
-  {icon:'solar',name:'Solar Rooftop Systems',desc:'On-grid & off-grid rooftop solar for homes, business & industry.',tag:'V-Guard Partner'},
-  {icon:'heater',name:'Solar Water Heaters',desc:'Energy-efficient hot water solutions for every need.',tag:'Best Seller'},
-  {icon:'pump',name:'Racold Heat Pumps',desc:'Reliable, energy-saving heat pump water heating.',tag:'Authorized'},
-  {icon:'pump',name:'Redsun Heat Pumps',desc:'High-performance heat pumps for continuous hot water.',tag:'Authorized'},
-  {icon:'ups',name:'Exide Home UPS',desc:'Uninterrupted power backup for your home & office.',tag:'Exide Dealer'},
-  {icon:'battery',name:'Tubular Batteries',desc:'Long-life Exide tubular batteries for deep backup.',tag:'Genuine'},
-  {icon:'car',name:'Vehicle Batteries',desc:'Genuine automotive batteries for all vehicles.',tag:'All Brands'},
-  {icon:'plug',name:'Electrical Accessories',desc:'Switches, wiring, fittings & complete electrical goods.',tag:'In Stock'}
+  {img:'assets/install-solar-etc.jpg',name:'Solar Water Heaters',brand:'Redsun',tag:'Best Seller',desc:'ETC & flat-plate solar water heaters — free hot water from the sun for homes, apartments & hostels.'},
+  {img:'assets/redsun-heatpump.jpg',name:'Heat Pump Water Heaters',brand:'Redsun',tag:'Energy Saving',desc:'Air-source heat pumps that deliver hot water day & night, in every season, at low running cost.'},
+  {img:'assets/racold-heater.jpg',name:'Electric Storage Geysers',brand:'Racold',tag:'New',desc:'Durable storage water heaters with digital display for instant, reliable home hot water.'},
+  {img:'assets/vguard-gas.jpg',name:'Gas Water Heaters',brand:'V-Guard',tag:'Instant Hot Water',desc:'Safe-Flo Prime LPG gas geysers for fast, on-demand hot water with safety controls.'},
+  {img:'assets/water-softener.jpg',name:'Water Softeners & Treatment',brand:'Zero B',tag:'Whole-House',desc:'Auto Soft, Iron, Carbon & Sand systems that remove hardness, iron & impurities for the whole house.'},
+  {img:'assets/zerob-ro.jpg',name:'RO Water Purifiers',brand:'Zero B',tag:'Safe Drinking Water',desc:'Kitchenmate RO purifiers for safe, great-tasting drinking water straight from your tap.'},
+  {img:'assets/pressure-pump.jpg',name:'Pressure Booster Pumps',brand:'Constant Pressure',tag:'Strong Flow',desc:'Automatic constant-pressure booster pumps for strong, steady water flow in every tap & shower.'},
+  {img:'assets/exide-power.jpg',name:'Home UPS & Batteries',brand:'Exide',tag:'Power Backup',desc:'Exide Inverterz pure sine-wave inverters & Invahomz tubular batteries for reliable power backup.'},
+  {img:'assets/solar-home.jpg',name:'Solar Rooftop Systems',brand:'V-Guard',tag:'Save on Bills',desc:'On-grid & off-grid rooftop solar power plants to cut your electricity bills for homes & business.'}
+];
+const gallery = [
+  {img:'assets/install-solar-etc.jpg',title:'Redsun Solar Water Heater',sub:'Evacuated-tube rooftop installation'},
+  {img:'assets/install-solar-fpc.jpg',title:'Solar Heater + Heat Pump',sub:'Flat-plate collector & heat pump on terrace'},
+  {img:'assets/install-heatpump.jpg',title:'Commercial Heat Pump System',sub:'High-capacity hot water for bulk use'}
 ];
 const services = [
   {icon:'sales',name:'Sales',desc:'Genuine products at the best price.'},
@@ -74,9 +80,9 @@ const why = [
   {icon:'warranty',t:'Trusted Brands'},{icon:'handshake',t:'Customer Satisfaction'}
 ];
 const reviews = [
-  {t:'Got solar rooftop installed for my home. Professional work, genuine V-Guard products and great after-sales service. Highly recommend!',n:'Ramesh K.',r:'Homeowner, Chitradurga',a:'R'},
-  {t:'Best place for Exide batteries and inverters. Honest pricing and quick installation. Been a customer for years.',n:'Suresh Patil',r:'Business Owner',a:'S'},
-  {t:'Their solar water heater has cut my electricity bill a lot. The team explained everything clearly. Very satisfied.',n:'Lakshmi Devi',r:'Resident, Davangere',a:'L'}
+  {t:'Installed a Redsun solar water heater for my home. Neat work, genuine product and great after-sales service. Highly recommend!',n:'Ramesh K.',r:'Homeowner, Chitradurga',a:'R'},
+  {t:'Fitted a Zero B water softener and RO purifier for us. No more hard-water problems and the water tastes great. Honest pricing too.',n:'Suresh Patil',r:'Apartment Owner',a:'S'},
+  {t:'Their heat pump gives us hot water all day at low cost, and the Exide inverter keeps power on. The team explained everything clearly.',n:'Lakshmi Devi',r:'Resident, Davangere',a:'L'}
 ];
 
 /* ============ RENDER ============ */
@@ -84,10 +90,29 @@ document.getElementById('commitGrid').innerHTML = commitments.map(c=>`
   <div class="commit"><span>${svg('check')}</span>${c}</div>`).join('');
 
 document.getElementById('productGrid').innerHTML = products.map((p,i)=>`
-  <div class="card reveal" style="transition-delay:${i*60}ms">
-    <div class="card__ico">${svg(p.icon)}</div>
-    <h3>${p.name}</h3><p>${p.desc}</p>
-    <span class="card__tag">${p.tag}</span>
+  <div class="pcard reveal" style="transition-delay:${i*55}ms">
+    <div class="pcard__media">
+      <img src="${p.img}" alt="${p.name} - ${p.brand}" loading="lazy" />
+      <span class="pcard__tag">${p.tag}</span>
+    </div>
+    <div class="pcard__body">
+      <span class="pcard__brand">${p.brand}</span>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <a class="pcard__link" href="https://wa.me/919448121829?text=${encodeURIComponent('Hi, I am interested in '+p.name+' ('+p.brand+'). Please share details & price.')}" target="_blank" rel="noopener">
+        Enquire on WhatsApp
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
+      </a>
+    </div>
+  </div>`).join('');
+
+document.getElementById('galleryGrid').innerHTML = gallery.map((g,i)=>`
+  <div class="gitem reveal" style="transition-delay:${i*80}ms">
+    <img src="${g.img}" alt="${g.title} - ${g.sub}" loading="lazy" />
+    <div class="gitem__overlay">
+      <h4>${g.title}</h4>
+      <p>${g.sub}</p>
+    </div>
   </div>`).join('');
 
 document.getElementById('serviceGrid').innerHTML = services.map((s,i)=>`
