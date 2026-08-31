@@ -241,17 +241,16 @@ enquiryForm.addEventListener('submit',event => {
 });
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!reducedMotion && 'IntersectionObserver' in window && Element.prototype.animate) {
+if (!reducedMotion && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    entry.target.animate(
-      [{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],
-      {duration:620,easing:'cubic-bezier(.2,.7,.2,1)',fill:'both'}
-    );
+    entry.target.classList.add('is-in');
     observer.unobserve(entry.target);
-  }),{threshold:.12});
+  }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(element => {
-    if (!element.closest('.hero')) observer.observe(element);
+    if (element.closest('.hero')) return;
+    element.classList.add('will-reveal');
+    observer.observe(element);
   });
 }
 
