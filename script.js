@@ -1,7 +1,7 @@
 /* ============ CONFIG ============ */
 const WHATSAPP_NUMBER = "919448121829"; // +91 94481 21829
 
-/* ============ ICONS (inline SVG paths) ============ */
+/* ============ ICONS ============ */
 const I = {
   solar:'<path d="M4 3h16l2 9H2L4 3zm-.6 11h17.2l-1 3H4.4l-1-3zM7 19h10v2H7v-2z"/>',
   heater:'<path d="M12 2a5 5 0 0 0-5 5v6.1a5 5 0 1 0 10 0V7a5 5 0 0 0-5-5zm0 18a3 3 0 0 1-1-5.8V7a1 1 0 1 1 2 0v7.2A3 3 0 0 1 12 20z"/>',
@@ -26,24 +26,27 @@ const I = {
   building:'<path d="M4 2h11v20H4V2zm13 6h3v14h-3V8zM7 5v2h2V5H7zm4 0v2h2V5h-2zM7 9v2h2V9H7zm4 0v2h2V9h-2zm-4 4v2h2v-2H7zm4 0v2h2v-2h-2z"/>',
   factory:'<path d="M2 22V8l6 4V8l6 4V8l6 4v10H2zm4-6v2h3v-2H6zm6 0v2h3v-2h-3z"/>',
   industry:'<path d="M22 22H2V10l6 3V10l6 3V4h2v9l6-3v12zM6 16v3h3v-3H6zm6 0v3h3v-3h-3z"/>',
-  gov:'<path d="M12 2 2 7v2h20V7L12 2zM4 10v8H2v2h20v-2h-2v-8h-2v8h-3v-8h-2v8H8v-8H6v8H4v-8h0z"/>',
+  gov:'<path d="M12 2 2 7v2h20V7L12 2zM4 10v8H2v2h20v-2h-2v-8h-2v8h-3v-8h-2v8H8v-8H6v8H4z"/>',
   star:'<path d="m12 2 3 6.5 7 .9-5 4.8 1.3 7L12 18l-6.3 3.2L7 14.2 2 9.4l7-.9L12 2z"/>',
   check:'<path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/>',
   price:'<path d="M2 12 12 2h9v9L11 21 2 12zm15-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>',
   support:'<path d="M12 2a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h1v-8H6v-1a6 6 0 0 1 12 0v1h-2v8h1a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z"/>',
   handshake:'<path d="m12 5 2-1.5 6 4.5v9l-3-1-4-4 1-1-2-2-2 2 1 1-3 3-3-2V8l6-4.5L12 5z"/>'
 };
+const svg = (p)=>`<svg viewBox="0 0 24 24">${I[p]||I.check}</svg>`;
 
 /* ============ DATA ============ */
+const commitments = ['Reliable Products','Trusted Brands','Professional Installation','On-Time Service','Affordable Pricing','Customer First'];
+
 const products = [
-  {icon:'solar',name:'Solar Rooftop Systems',desc:'On-grid & off-grid rooftop solar for homes, business & industry.'},
-  {icon:'heater',name:'Solar Water Heaters',desc:'Energy-efficient hot water solutions for every need.'},
-  {icon:'pump',name:'Racold Heat Pumps',desc:'Reliable, energy-saving heat pump water heating.'},
-  {icon:'pump',name:'Redsun Heat Pumps',desc:'High-performance heat pumps for continuous hot water.'},
-  {icon:'ups',name:'Exide Home UPS',desc:'Uninterrupted power backup for your home & office.'},
-  {icon:'battery',name:'Tubular Batteries',desc:'Long-life Exide tubular batteries for deep backup.'},
-  {icon:'car',name:'Vehicle Batteries',desc:'Genuine automotive batteries for all vehicles.'},
-  {icon:'plug',name:'Electrical Accessories',desc:'Switches, wiring, fittings & complete electrical goods.'}
+  {icon:'solar',name:'Solar Rooftop Systems',desc:'On-grid & off-grid rooftop solar for homes, business & industry.',tag:'V-Guard Partner'},
+  {icon:'heater',name:'Solar Water Heaters',desc:'Energy-efficient hot water solutions for every need.',tag:'Best Seller'},
+  {icon:'pump',name:'Racold Heat Pumps',desc:'Reliable, energy-saving heat pump water heating.',tag:'Authorized'},
+  {icon:'pump',name:'Redsun Heat Pumps',desc:'High-performance heat pumps for continuous hot water.',tag:'Authorized'},
+  {icon:'ups',name:'Exide Home UPS',desc:'Uninterrupted power backup for your home & office.',tag:'Exide Dealer'},
+  {icon:'battery',name:'Tubular Batteries',desc:'Long-life Exide tubular batteries for deep backup.',tag:'Genuine'},
+  {icon:'car',name:'Vehicle Batteries',desc:'Genuine automotive batteries for all vehicles.',tag:'All Brands'},
+  {icon:'plug',name:'Electrical Accessories',desc:'Switches, wiring, fittings & complete electrical goods.',tag:'In Stock'}
 ];
 const services = [
   {icon:'sales',name:'Sales',desc:'Genuine products at the best price.'},
@@ -70,30 +73,56 @@ const why = [
   {icon:'home',t:'Residential Projects'},{icon:'amc',t:'Complete Sales & Service'},
   {icon:'warranty',t:'Trusted Brands'},{icon:'handshake',t:'Customer Satisfaction'}
 ];
+const reviews = [
+  {t:'Got solar rooftop installed for my home. Professional work, genuine V-Guard products and great after-sales service. Highly recommend!',n:'Ramesh K.',r:'Homeowner, Chitradurga',a:'R'},
+  {t:'Best place for Exide batteries and inverters. Honest pricing and quick installation. Been a customer for years.',n:'Suresh Patil',r:'Business Owner',a:'S'},
+  {t:'Their solar water heater has cut my electricity bill a lot. The team explained everything clearly. Very satisfied.',n:'Lakshmi Devi',r:'Resident, Davangere',a:'L'}
+];
 
 /* ============ RENDER ============ */
-const svg = (p)=>`<svg viewBox="0 0 24 24">${I[p]||I.check}</svg>`;
+document.getElementById('commitGrid').innerHTML = commitments.map(c=>`
+  <div class="commit"><span>✓</span>${c}</div>`).join('');
 
-document.getElementById('productGrid').innerHTML = products.map(p=>`
-  <div class="card reveal">
+document.getElementById('productGrid').innerHTML = products.map((p,i)=>`
+  <div class="card reveal" style="transition-delay:${i*60}ms">
     <div class="card__ico">${svg(p.icon)}</div>
     <h3>${p.name}</h3><p>${p.desc}</p>
+    <span class="card__tag">${p.tag}</span>
   </div>`).join('');
 
-document.getElementById('serviceGrid').innerHTML = services.map(s=>`
-  <div class="service reveal">
+document.getElementById('serviceGrid').innerHTML = services.map((s,i)=>`
+  <div class="service reveal" style="transition-delay:${i*50}ms">
     <div class="service__ico">${svg(s.icon)}</div>
     <div><h4>${s.name}</h4><p>${s.desc}</p></div>
   </div>`).join('');
 
-document.getElementById('industryGrid').innerHTML = industries.map(i=>`
-  <div class="chip reveal">${svg(i.icon)}<span>${i.name}</span></div>`).join('');
+document.getElementById('industryGrid').innerHTML = industries.map((i,x)=>`
+  <div class="chip reveal" style="transition-delay:${x*40}ms">${svg(i.icon)}<span>${i.name}</span></div>`).join('');
 
-document.getElementById('whyGrid').innerHTML = why.map(w=>`
-  <div class="why-item reveal">
+document.getElementById('whyGrid').innerHTML = why.map((w,i)=>`
+  <div class="why-item reveal" style="transition-delay:${i*45}ms">
     <div class="why-item__ico">${svg(w.icon)}</div>
     <h4>${w.t}</h4>
   </div>`).join('');
+
+const starRow = ('<svg viewBox="0 0 24 24">'+I.star+'</svg>').repeat(5);
+document.getElementById('reviewGrid').innerHTML = reviews.map((rv,i)=>`
+  <div class="review reveal" style="transition-delay:${i*80}ms">
+    <div class="review__stars">${starRow}</div>
+    <p class="review__text">"${rv.t}"</p>
+    <div class="review__person">
+      <div class="review__avatar">${rv.a}</div>
+      <div><div class="review__name">${rv.n}</div><div class="review__role">${rv.r}</div></div>
+    </div>
+  </div>`).join('');
+
+/* ============ PRELOADER ============ */
+window.addEventListener('load',()=>{
+  const pre = document.getElementById('preloader');
+  setTimeout(()=>pre.classList.add('hide'),500);
+});
+// Fallback in case load already fired
+setTimeout(()=>{const p=document.getElementById('preloader');if(p)p.classList.add('hide')},2500);
 
 /* ============ NAV TOGGLE ============ */
 const nav = document.getElementById('nav');
@@ -114,11 +143,15 @@ document.getElementById('enquiryForm').addEventListener('submit',function(e){
   text += `*Interested In:* ${encodeURIComponent(service)}%0A`;
   if(msg) text += `*Message:* ${encodeURIComponent(msg)}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,'_blank');
+  const status = document.getElementById('formStatus');
+  status.textContent = '✓ Opening WhatsApp… we\'ll reply shortly!';
+  this.reset();
+  setTimeout(()=>status.textContent='',5000);
 });
 
 /* ============ COUNTER ANIMATION ============ */
 function animateCount(el){
-  const target = +el.dataset.count; const dur = 1400; const start = performance.now();
+  const target = +el.dataset.count; const dur = 1500; const start = performance.now();
   function step(now){
     const prog = Math.min((now-start)/dur,1);
     const eased = 1-Math.pow(1-prog,3);
@@ -133,19 +166,30 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
     if(en.isIntersecting){
       en.target.classList.add('in');
-      if(en.target.classList.contains('stat__num')) animateCount(en.target);
+      if(en.target.dataset.count!==undefined) animateCount(en.target);
       io.unobserve(en.target);
     }
   });
-},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.stat__num').forEach(el=>io.observe(el));
+},{threshold:.12});
+document.querySelectorAll('.reveal,[data-count]').forEach(el=>io.observe(el));
 
-/* ============ HEADER SHADOW ON SCROLL ============ */
+/* ============ HEADER + BACK-TO-TOP + ACTIVE NAV ============ */
 const header = document.getElementById('header');
+const toTop = document.getElementById('toTop');
+const sections = [...document.querySelectorAll('section[id]')];
+const navLinks = [...document.querySelectorAll('.nav__link')];
+
 window.addEventListener('scroll',()=>{
-  header.style.boxShadow = window.scrollY>10 ? '0 4px 20px rgba(10,31,92,.12)' : '0 2px 14px rgba(10,31,92,.07)';
-});
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y>10);
+  toTop.classList.toggle('show', y>500);
+  // active nav
+  let current = '';
+  sections.forEach(s=>{ if(y >= s.offsetTop-120) current = s.id; });
+  navLinks.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+current));
+},{passive:true});
+
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ============ FOOTER YEAR ============ */
 document.getElementById('year').textContent = new Date().getFullYear();
