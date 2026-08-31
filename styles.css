@@ -637,3 +637,17 @@ body.language-changing main,body.language-changing section,body.language-changin
   .gallery{grid-template-columns:1fr;grid-template-rows:none}
   .gitem:first-child,.gitem:nth-child(2),.gitem:nth-child(3),.gitem:nth-child(4){grid-column:1;grid-row:auto;height:250px}
 }
+
+
+/* ============ OFFICIAL BRAND LOGO ============ */
+.brand__mark{width:58px;height:58px;padding:2px;border-radius:50%;background:#fff;overflow:visible;box-shadow:0 8px 26px rgba(5,22,67,.18);isolation:auto}
+.brand__mark::after{display:none}
+.brand__mark img{width:100%;height:100%;display:block;object-fit:contain;border-radius:50%}
+.preloader__mark{width:122px;height:122px;padding:5px;border-radius:50%;background:#fff;box-shadow:0 20px 52px rgba(0,0,0,.3),0 0 0 1px rgba(255,215,94,.38);overflow:hidden;animation:logoArrival .8s cubic-bezier(.2,.75,.2,1)}
+.preloader__mark img{width:100%;height:100%;display:block;object-fit:contain;border-radius:50%}
+.brand--footer .brand__mark{width:70px;height:70px;padding:3px;box-shadow:0 12px 30px rgba(0,0,0,.28)}
+@keyframes logoArrival{0%{opacity:0;transform:scale(.72) rotate(-8deg)}65%{transform:scale(1.05) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@media(max-width:640px){
+  .brand__mark{width:50px;height:50px;padding:2px}
+  .brand--footer .brand__mark{width:64px;height:64px}
+}
