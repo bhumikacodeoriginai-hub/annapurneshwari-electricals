@@ -734,3 +734,38 @@ body{text-rendering:optimizeLegibility}
 
 .chat-links .is-insta{background:var(--insta-grad);color:#fff}
 .chat-links .is-insta svg{fill:currentColor}
+
+
+
+/* ============================================================
+   MOBILE LANGUAGE SELECTOR (in the nav drawer)
+   ============================================================ */
+.nav-lang{display:none}
+@media(max-width:900px){
+  .nav-lang{display:flex;align-items:center;gap:10px;margin-top:20px;padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:#fff;box-shadow:0 6px 18px rgba(4,16,28,.06)}
+  .nav-lang svg{width:19px;height:19px;color:var(--gold-deep);flex:none}
+  .nav-lang select{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font-family:var(--font);font-weight:700;font-size:.98rem;padding:2px}
+  .nav-lang select:focus{outline:none}
+}
+
+/* ============================================================
+   OUR SERVICES — MOVING ANIMATIONS (reduced-motion safe)
+   ============================================================ */
+.journey-step__number{position:relative}
+@media (prefers-reduced-motion: no-preference){
+  /* flowing connector line between the steps */
+  .journey::before{background:linear-gradient(90deg,var(--gold-pale),var(--gold),var(--red),var(--gold),var(--gold-pale));background-size:220% 100%;animation:journeyFlow 4.5s linear infinite}
+  @keyframes journeyFlow{from{background-position:0 0}to{background-position:220% 0}}
+  /* gently floating step badges, staggered */
+  .journey-step__number{animation:stepFloat 3.6s ease-in-out infinite}
+  .journey-step:nth-child(2) .journey-step__number{animation-delay:.35s}
+  .journey-step:nth-child(3) .journey-step__number{animation-delay:.7s}
+  .journey-step:nth-child(4) .journey-step__number{animation-delay:1.05s}
+  @keyframes stepFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  /* pulsing ring on the first step */
+  .journey-step:first-child .journey-step__number::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--gold);opacity:.6;animation:stepPulse 2.2s ease-out infinite}
+  @keyframes stepPulse{0%{transform:scale(.92);opacity:.6}70%{transform:scale(1.32);opacity:0}100%{opacity:0}}
+  /* service card arrow nudges on hover */
+  .service-card:hover::after{animation:arrowNudge .85s ease-in-out infinite}
+  @keyframes arrowNudge{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
+}

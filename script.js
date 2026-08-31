@@ -149,8 +149,7 @@ function applyLanguage(lang) {
   document.querySelectorAll('[data-wa]').forEach(link => {
     link.href = waLink(whatsappMessages[link.dataset.wa] || T.hero.quote);
   });
-  const select = document.getElementById('langSelect');
-  if (select) select.value = currentLang;
+  document.querySelectorAll('.lang-select').forEach(sel => { sel.value = currentLang; sel.setAttribute('aria-label', U.language || 'Select language'); });
   const toggle = document.getElementById('menuToggle');
   toggle.setAttribute('aria-label',toggle.getAttribute('aria-expanded') === 'true' ? U.menuClose : U.menuOpen);
   document.getElementById('navScrim').setAttribute('aria-label',U.menuClose);
@@ -159,9 +158,11 @@ function applyLanguage(lang) {
 }
 
 (function initializeLanguage() {
-  const select = document.getElementById('langSelect');
-  select.innerHTML = Object.entries(window.LANGS || {en:'English'}).map(([code,label]) => `<option value="${code}">${label}</option>`).join('');
-  select.addEventListener('change',() => applyLanguage(select.value));
+  const options = Object.entries(window.LANGS || { en: 'English' }).map(([code, label]) => `<option value="${code}">${label}</option>`).join('');
+  document.querySelectorAll('.lang-select').forEach(sel => {
+    sel.innerHTML = options;
+    sel.addEventListener('change', () => applyLanguage(sel.value));
+  });
   let saved = 'en';
   try { saved = localStorage.getItem('siteLang') || 'en'; } catch (_) {}
   applyLanguage(window.TRANSLATIONS?.[saved] ? saved : 'en');
