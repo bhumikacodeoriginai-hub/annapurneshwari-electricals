@@ -263,7 +263,7 @@ svg{fill:currentColor}
 .testimonial-person small{display:block;color:var(--muted);font-size:.65rem}
 
 /* Contact */
-.contact-section{padding-bottom:0;background:var(--cream)}
+.contact-section{background:var(--cream)}
 .contact-shell{display:grid;grid-template-columns:.92fr 1.08fr;min-height:620px;border-radius:26px;overflow:hidden;background:#fff;box-shadow:var(--shadow-lg)}
 .contact-panel{position:relative;padding:64px;background:var(--ink-grad);color:#fff;overflow:hidden}
 .contact-panel::after{content:"";position:absolute;width:340px;height:340px;right:-185px;bottom:-195px;border:1px solid rgba(247,204,107,.22);border-radius:50%;box-shadow:0 0 0 60px rgba(247,204,107,.03)}
