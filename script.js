@@ -81,7 +81,7 @@ const reviews = [
 
 /* ============ RENDER ============ */
 document.getElementById('commitGrid').innerHTML = commitments.map(c=>`
-  <div class="commit"><span>✓</span>${c}</div>`).join('');
+  <div class="commit"><span>${svg('check')}</span>${c}</div>`).join('');
 
 document.getElementById('productGrid').innerHTML = products.map((p,i)=>`
   <div class="card reveal" style="transition-delay:${i*60}ms">
@@ -144,7 +144,7 @@ document.getElementById('enquiryForm').addEventListener('submit',function(e){
   if(msg) text += `*Message:* ${encodeURIComponent(msg)}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,'_blank');
   const status = document.getElementById('formStatus');
-  status.textContent = '✓ Opening WhatsApp… we\'ll reply shortly!';
+  status.textContent = 'Opening WhatsApp — we\'ll reply shortly!';
   this.reset();
   setTimeout(()=>status.textContent='',5000);
 });
@@ -190,6 +190,44 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ============ ROBUST EMAIL LINKS ============ */
+/* On mobile, native mailto opens the mail app. On desktop (where mailto often
+   does nothing without a configured mail client), open Gmail compose in a new
+   tab AND copy the address to the clipboard so the link always does something. */
+(function(){
+  const EMAIL = 'nlokesh29@rediffmail.com';
+  const SUBJECT = 'Enquiry - Electrical & Solar Solutions';
+  const BODY = 'Hello Sri Annapurneshwari Electricals,\n\nI am interested in your products/services. Please contact me.\n\nName:\nPhone:\nLocation:';
+  const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) +
+                '&su=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(BODY);
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
+
+  let toastEl;
+  function toast(msg){
+    if(!toastEl){ toastEl = document.createElement('div'); toastEl.className = 'toast'; document.body.appendChild(toastEl); }
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(()=>toastEl.classList.remove('show'), 4000);
+  }
+
+  document.querySelectorAll('.email-link').forEach(a=>{
+    a.addEventListener('click', function(e){
+      if(isMobile) return; // let native mailto handle it on phones
+      e.preventDefault();
+      window.open(gmail, '_blank', 'noopener');
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(EMAIL).then(
+          ()=>toast('Opening Gmail… email copied: ' + EMAIL),
+          ()=>toast('Opening Gmail compose…')
+        );
+      } else {
+        toast('Opening Gmail compose…');
+      }
+    });
+  });
+})();
 
 /* ============ FOOTER YEAR ============ */
 document.getElementById('year').textContent = new Date().getFullYear();
