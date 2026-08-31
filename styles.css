@@ -289,7 +289,9 @@ svg{fill:currentColor}
 .enquiry-card textarea{resize:vertical;min-height:108px}
 .enquiry-card input:focus,.enquiry-card select:focus,.enquiry-card textarea:focus{outline:0;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(232,169,40,.14)}
 .form-status{min-height:1.2em;color:#147246;text-align:center;font-size:.76rem;font-weight:700}
-.map-wrap{height:320px;margin-top:26px;padding:0;overflow:hidden;border-radius:26px 26px 0 0;box-shadow:0 -10px 35px rgba(4,16,28,.06);border-top:3px solid var(--gold)}
+.map-note{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:34px;color:var(--ink);font-size:.8rem;font-weight:700;text-align:center}
+.map-note svg{width:18px;height:18px;color:var(--gold-deep);flex:none}
+.map-wrap{height:340px;margin-top:16px;padding:0;overflow:hidden;border-radius:26px 26px 0 0;box-shadow:0 -10px 35px rgba(4,16,28,.06);border-top:3px solid var(--gold)}
 .map-wrap iframe{width:100%;height:100%;border:0;filter:saturate(.7) contrast(1.05)}
 
 /* Footer */
@@ -312,10 +314,15 @@ svg{fill:currentColor}
 /* Highlighted Code Origin.AI credit */
 .credit-band{background:#02090f;border-top:1px solid rgba(247,204,107,.16)}
 .credit-band__inner{min-height:60px;display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;padding:15px 0;text-align:center;font-size:.76rem;color:#8fa3a8}
-.credit-band a{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:50px;background:var(--gold-grad);color:#2a1c00;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 20px rgba(232,169,40,.28);transition:transform .2s,box-shadow .2s}
-.credit-band a:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(232,169,40,.4)}
-.credit-band a svg{width:15px;height:15px}
-.credit-band strong{color:#fff;font-weight:800}
+.credit-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:50px;background:var(--gold-grad);color:#2a1c00;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 20px rgba(232,169,40,.28)}
+.credit-badge svg{width:15px;height:15px}
+.credit-badge strong{color:#2a1c00;font-weight:800}
+
+/* Store hours block in contact */
+.contact-hours{display:flex;align-items:flex-start;gap:14px;position:relative;z-index:1}
+.contact-hours strong{display:flex!important;align-items:center;gap:8px}
+.contact-hours em{display:block;margin-top:5px;color:#8aa0a6;font-size:.67rem;font-style:normal;font-weight:600}
+.hours-dot{width:8px;height:8px;border-radius:50%;background:#31d07a;box-shadow:0 0 0 3px rgba(49,208,122,.22);flex:none}
 
 /* Mobile dock */
 .mobile-dock{display:none}
@@ -502,4 +509,60 @@ svg{fill:currentColor}
   .chat-launch span:not(.chat-launch__pulse):not(.chat-launch__badge){display:none}
   .chat-launch{padding:0;width:56px;height:56px;justify-content:center;border-radius:50%}
   .chat-panel{right:8px;left:8px;bottom:8px;width:auto;height:min(76dvh,600px)}
+}
+
+
+
+/* ============================================================
+   INTERNATIONAL-LEVEL POLISH LAYER
+   ============================================================ */
+/* Refined type rendering + selection */
+body{text-rendering:optimizeLegibility}
+::selection{background:rgba(232,169,40,.28);color:var(--ink)}
+
+/* Header: crisper glass + hairline gold underglow when scrolled */
+.site-header.scrolled{box-shadow:0 1px 0 rgba(247,204,107,.35),0 16px 40px rgba(4,16,28,.1)}
+
+/* Hero: layered aurora depth behind the existing texture */
+.hero{isolation:isolate}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 15% 0%,rgba(28,155,139,.16),transparent 60%),
+    radial-gradient(50% 40% at 100% 30%,rgba(232,169,40,.14),transparent 60%),
+    radial-gradient(40% 50% at 60% 100%,rgba(117,92,255,.1),transparent 60%)}
+.hero__grid{z-index:1}
+.hero h1{text-shadow:0 2px 30px rgba(0,0,0,.25)}
+
+/* Premium product-card depth + glossy media */
+.product-card{box-shadow:0 2px 4px rgba(4,16,28,.04),0 12px 24px rgba(4,16,28,.05)}
+.product-card:hover{box-shadow:0 30px 60px rgba(4,16,28,.16)}
+.product-card__media{position:relative}
+.product-card__media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.5),transparent 40%);mix-blend-mode:overlay;opacity:0;transition:opacity .35s}
+.product-card:hover .product-card__media::before{opacity:1}
+
+/* Elegant gradient hairline separating major light sections */
+.solutions,.service-section,.testimonials{position:relative}
+.solutions::after,.service-section::after,.testimonials::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:min(1240px,calc(100% - 40px));height:1px;background:linear-gradient(90deg,transparent,rgba(232,169,40,.4),transparent)}
+
+/* Store credential badge (accurate: Google-listed battery/solar store) */
+.contact-cred{display:inline-flex;align-items:center;gap:9px;margin:2px 0 26px;padding:8px 15px;border-radius:50px;background:rgba(247,204,107,.1);border:1px solid rgba(247,204,107,.3);color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.contact-cred svg{width:15px;height:15px;flex:none}
+.contact-cred b{color:#fff;font-weight:800}
+
+/* Buttons: refined focus ring + subtle inner highlight */
+.button--gold{box-shadow:0 12px 28px rgba(232,169,40,.32),inset 0 1px 0 rgba(255,255,255,.5)}
+
+/* Section headings: refined kerning for large display type */
+.section-heading h2,.hero h1,.story__copy h2,.contact-panel h2{font-feature-settings:"ss01","cv01"}
+
+/* Scroll-to-top control (desktop polish) */
+.to-top{position:fixed;left:20px;bottom:20px;z-index:94;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 10px 26px rgba(4,16,28,.2),0 0 0 1px rgba(4,16,28,.06);display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s,background .2s,color .2s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--ink);color:var(--gold-light)}
+.to-top svg{width:20px;height:20px}
+@media(max-width:680px){.to-top{display:none}}
+
+@media (prefers-reduced-motion: no-preference){
+  .hero::after{background-size:140% 140%,140% 140%,140% 140%;animation:aurora 22s ease-in-out infinite alternate}
+  @keyframes aurora{0%{background-position:0% 0%,100% 0%,50% 100%}100%{background-position:20% 10%,80% 30%,40% 80%}}
 }
