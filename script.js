@@ -311,3 +311,31 @@ document.getElementById('year').textContent = new Date().getFullYear();
     });
   });
 })();
+
+
+
+/* Brand marquee: fill to viewport width, then duplicate for a seamless -50% scroll */
+(function () {
+  const track = document.getElementById('brandTrack');
+  if (!track) return;
+  const marquee = track.parentElement;
+  const base = [...track.children];
+  if (!base.length) return;
+  function build() {
+    track.innerHTML = '';
+    base.forEach(node => track.appendChild(node));
+    let guard = 0;
+    while (track.scrollWidth < marquee.clientWidth + 60 && guard < 16) {
+      base.forEach(node => track.appendChild(node.cloneNode(true)));
+      guard++;
+    }
+    [...track.children].forEach(node => {
+      const clone = node.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
+  build();
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(build, 250); }, { passive: true });
+})();
