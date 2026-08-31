@@ -1,351 +1,275 @@
-/* ============ CONFIG ============ */
-const WHATSAPP_NUMBER = "919448121829"; // +91 94481 21829
+const WHATSAPP_NUMBER = '919448121829';
 
-/* ============ ICONS ============ */
-const I = {
-  solar:'<path d="M4 3h16l2 9H2L4 3zm-.6 11h17.2l-1 3H4.4l-1-3zM7 19h10v2H7v-2z"/>',
-  heater:'<path d="M12 2a5 5 0 0 0-5 5v6.1a5 5 0 1 0 10 0V7a5 5 0 0 0-5-5zm0 18a3 3 0 0 1-1-5.8V7a1 1 0 1 1 2 0v7.2A3 3 0 0 1 12 20z"/>',
-  pump:'<path d="M12 2C7 2 3 6 3 11c0 4 2.5 7 6 8v1h6v-1c3.5-1 6-4 6-8 0-5-4-9-9-9zm0 4a5 5 0 0 1 5 5h-2a3 3 0 0 0-3-3V6z"/>',
-  ups:'<path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm9 3-4 5h2v3l4-5h-2V7z"/>',
-  battery:'<path d="M15 4h-2V2h-2v2H9a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1 9h-1.2l.7 3-3.5-4h2l-.7-3 3.7 4z"/>',
-  car:'<path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11h1a1 1 0 0 1 1 1v5h-2v2h-2v-2H7v2H5v-2H3v-5a1 1 0 0 1 1-1h1zm2.2-.5h9.6l-1-3H8.2l-1 3zM7 14a1.2 1.2 0 1 0 0 2.4A1.2 1.2 0 0 0 7 14zm10 0a1.2 1.2 0 1 0 0 2.4A1.2 1.2 0 0 0 17 14z"/>',
-  plug:'<path d="M14 2v6h-2V2h2zM8 2v6H6V2h2zm-3 8h14v3a7 7 0 0 1-6 6.9V22h-2v-2.1A7 7 0 0 1 5 13v-3z"/>',
-  sales:'<path d="M7 4h13l-1.5 9H8.5L7 4zM6 2H2v2h2l1 12h13v-2H6.8l-.3-2H20L22 4H5.7L5.3 2H6zM9 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>',
-  install:'<path d="M22 7.6 16.4 2 14 4.4l1 1-9 9-1-1L2 15.8 8.2 22 11 19.2l-1-1 9-9 1 1L22 7.6zM8.2 19.2 5 16l.6-.6 3.2 3.2-.6.6z"/>',
-  amc:'<path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6z"/>',
-  repair:'<path d="M21 3a4 4 0 0 1-5.3 5.3l-8 8L5 14l8-8A4 4 0 0 1 18.3 3H21zM3.5 18.5a2.1 2.1 0 1 1 3 3 2.1 2.1 0 0 1-3-3z"/>',
-  survey:'<path d="M12 2C7 2 3 6 3 11c0 6 9 11 9 11s9-5 9-11c0-5-4-9-9-9zm0 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>',
-  consult:'<path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2zm3 5v2h10V9H7zm0 4v2h7v-2H7z"/>',
-  project:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',
-  warranty:'<path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4zm-1 14-3.5-3.5L9 10l2 2 4-4 1.5 1.4L11 15z"/>',
-  home:'<path d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3L12 3z"/>',
-  apartment:'<path d="M3 21V3h10v6h8v12H3zm2-2h6V5H5v14zm8 0h6v-8h-6v8zM7 7h2v2H7V7zm0 4h2v2H7v-2zm0 4h2v2H7v-2z"/>',
-  school:'<path d="M12 3 1 8l11 5 9-4.1V15h2V8L12 3zM4 12.3V16c0 1.7 3.6 3 8 3s8-1.3 8-3v-3.7l-8 3.6-8-3.6z"/>',
-  hospital:'<path d="M6 2h12v20H6V2zm5 4v3H8v2h3v3h2v-3h3V9h-3V6h-2z"/>',
-  hotel:'<path d="M2 4h2v9h8V7h6a4 4 0 0 1 4 4v9h-2v-3H4v3H2V4zm4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>',
-  building:'<path d="M4 2h11v20H4V2zm13 6h3v14h-3V8zM7 5v2h2V5H7zm4 0v2h2V5h-2zM7 9v2h2V9H7zm4 0v2h2V9h-2zm-4 4v2h2v-2H7zm4 0v2h2v-2h-2z"/>',
-  factory:'<path d="M2 22V8l6 4V8l6 4V8l6 4v10H2zm4-6v2h3v-2H6zm6 0v2h3v-2h-3z"/>',
-  industry:'<path d="M22 22H2V10l6 3V10l6 3V4h2v9l6-3v12zM6 16v3h3v-3H6zm6 0v3h3v-3h-3z"/>',
-  gov:'<path d="M12 2 2 7v2h20V7L12 2zM4 10v8H2v2h20v-2h-2v-8h-2v8h-3v-8h-2v8H8v-8H6v8H4z"/>',
-  star:'<path d="m12 2 3 6.5 7 .9-5 4.8 1.3 7L12 18l-6.3 3.2L7 14.2 2 9.4l7-.9L12 2z"/>',
-  check:'<path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/>',
-  price:'<path d="M2 12 12 2h9v9L11 21 2 12zm15-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>',
-  support:'<path d="M12 2a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h1v-8H6v-1a6 6 0 0 1 12 0v1h-2v8h1a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z"/>',
-  handshake:'<path d="m12 5 2-1.5 6 4.5v9l-3-1-4-4 1-1-2-2-2 2 1 1-3 3-3-2V8l6-4.5L12 5z"/>',
-  wa:'<path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/>'
-};
-const svg = (p)=>`<svg viewBox="0 0 24 24">${I[p]||I.check}</svg>`;
-const waSvg = `<svg viewBox="0 0 24 24">${I.wa}</svg>`;
-
-/* ============ STRUCTURAL META (language-independent) ============ */
-const productMeta = [
-  {img:'assets/install-solar-etc.jpg', brand:'Redsun'},
-  {img:'assets/redsun-heatpump.jpg',   brand:'Redsun'},
-  {img:'assets/racold-heater.jpg',     brand:'Racold'},
-  {img:'assets/vguard-gas.jpg',        brand:'V-Guard'},
-  {img:'assets/water-softener.jpg',    brand:'Zero B'},
-  {img:'assets/zerob-ro.jpg',          brand:'Zero B'},
-  {img:'assets/pressure-pump.jpg',     brand:'Booster Pump'},
-  {img:'assets/exide-power.jpg',       brand:'Exide'},
-  {img:'assets/solar-home.jpg',        brand:'V-Guard'}
+const PRODUCT_META = [
+  { img:'assets/install-solar-etc.jpg', brand:'Redsun', width:1024, height:576, group:'hot' },
+  { img:'assets/redsun-heatpump.jpg', brand:'Redsun', width:696, height:480, group:'hot' },
+  { img:'assets/racold-heater.jpg', brand:'Racold', width:447, height:447, group:'hot' },
+  { img:'assets/vguard-gas.jpg', brand:'V-Guard', width:460, height:1024, group:'hot' },
+  { img:'assets/water-softener.jpg', brand:'Zero B', width:1000, height:639, group:'water' },
+  { img:'assets/zerob-ro.jpg', brand:'Zero B', width:447, height:447, group:'water' },
+  { img:'assets/pressure-pump.jpg', brand:'Booster Pump', width:705, height:1024, group:'water' },
+  { img:'assets/exide-power.jpg', brand:'Exide', width:964, height:964, group:'power' },
+  { img:'assets/solar-home.jpg', brand:'V-Guard', width:716, height:428, group:'power' }
 ];
-const galleryMeta = ['assets/install-solar-etc.jpg','assets/install-solar-fpc.jpg','assets/install-heatpump.jpg','assets/solar-home.jpg'];
-const serviceIcons  = ['sales','install','amc','repair','survey','battery','consult','project','warranty'];
-const industryIcons = ['home','apartment','school','hospital','hotel','building','factory','industry','gov'];
-const whyIcons      = ['star','check','install','support','price','project','home','amc','warranty','handshake'];
-const reviewMeta    = [{a:'R',n:'Ramesh K.'},{a:'S',n:'Suresh Patil'},{a:'L',n:'Lakshmi Devi'}];
-const starRow = ('<svg viewBox="0 0 24 24">'+I.star+'</svg>').repeat(5);
 
-/* ============ i18n ENGINE ============ */
-function getPath(obj, path){ return path.split('.').reduce((o,k)=> (o==null ? undefined : o[k]), obj); }
+const PROJECT_META = [
+  { img:'assets/install-solar-etc.jpg', width:1024, height:576 },
+  { img:'assets/install-solar-fpc.jpg', width:1024, height:473 },
+  { img:'assets/install-heatpump.jpg', width:1024, height:461 }
+];
 
-function translateStatic(T){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const v = getPath(T, el.getAttribute('data-i18n'));
-    if(v==null) return;
-    if(el.hasAttribute('data-i18n-html')) el.innerHTML = v;
-    else el.textContent = v;
-  });
-}
+const REVIEW_META = [
+  { initial:'R', name:'Ramesh K.' },
+  { initial:'S', name:'Suresh Patil' },
+  { initial:'L', name:'Lakshmi Devi' }
+];
 
-function waLink(msg){ return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`; }
-
-function renderDynamic(T){
-  // Marquee (duplicated for seamless loop)
-  const mq = T.marquee.map(m=>`<span>${m}</span><i></i>`).join('');
-  document.getElementById('marqueeTrack').innerHTML = mq + mq;
-
-  // Commitments
-  document.getElementById('commitGrid').innerHTML = T.commitments.map(c=>
-    `<div class="commit"><span>${svg('check')}</span>${c}</div>`).join('');
-
-  // Products
-  document.getElementById('productGrid').innerHTML = productMeta.map((m,i)=>{
-    const it = T.products.items[i];
-    const msg = `Enquiry: ${it.name} (${m.brand})`;
-    return `<div class="pcard reveal" style="transition-delay:${i*55}ms">
-      <div class="pcard__media">
-        <img src="${m.img}" alt="${it.name} - ${m.brand}" loading="lazy" />
-        <span class="pcard__tag">${it.tag}</span>
-      </div>
-      <div class="pcard__body">
-        <span class="pcard__brand">${m.brand}</span>
-        <h3>${it.name}</h3>
-        <p>${it.desc}</p>
-        <a class="pcard__link" href="${waLink(msg)}" target="_blank" rel="noopener">${T.products.enquire}${waSvg}</a>
-      </div>
-    </div>`;
-  }).join('');
-
-  // Gallery
-  document.getElementById('galleryGrid').innerHTML = galleryMeta.map((img,i)=>{
-    const it = T.gallery.items[i];
-    return `<div class="gitem reveal" style="transition-delay:${i*80}ms">
-      <img src="${img}" alt="${it.title} - ${it.sub}" loading="lazy" />
-      <div class="gitem__overlay"><h4>${it.title}</h4><p>${it.sub}</p></div>
-    </div>`;
-  }).join('');
-
-  // Services
-  document.getElementById('serviceGrid').innerHTML = serviceIcons.map((ic,i)=>{
-    const it = T.services.items[i];
-    return `<div class="service reveal" style="transition-delay:${i*50}ms">
-      <div class="service__ico">${svg(ic)}</div>
-      <div><h4>${it.name}</h4><p>${it.desc}</p></div>
-    </div>`;
-  }).join('');
-
-  // Industries
-  document.getElementById('industryGrid').innerHTML = industryIcons.map((ic,i)=>
-    `<div class="chip reveal" style="transition-delay:${i*40}ms">${svg(ic)}<span>${T.industries.items[i]}</span></div>`).join('');
-
-  // Why
-  document.getElementById('whyGrid').innerHTML = whyIcons.map((ic,i)=>
-    `<div class="why-item reveal" style="transition-delay:${i*45}ms">
-      <div class="why-item__ico">${svg(ic)}</div><h4>${T.why.items[i]}</h4>
-    </div>`).join('');
-
-  // Reviews
-  document.getElementById('reviewGrid').innerHTML = reviewMeta.map((rm,i)=>{
-    const it = T.reviews.items[i];
-    return `<div class="review reveal" style="transition-delay:${i*80}ms">
-      <div class="review__stars">${starRow}</div>
-      <p class="review__text">&ldquo;${it.t}&rdquo;</p>
-      <div class="review__person">
-        <div class="review__avatar">${rm.a}</div>
-        <div><div class="review__name">${rm.n}</div><div class="review__role">${it.role}</div></div>
-      </div>
-    </div>`;
-  }).join('');
-
-  // Contact form: options + placeholders
-  const sel = document.getElementById('cService');
-  if(sel){
-    const prev = sel.selectedIndex;
-    sel.innerHTML = T.contact.options.map(o=>`<option>${o}</option>`).join('');
-    if(prev>=0 && prev<sel.options.length) sel.selectedIndex = prev;
-  }
-  const ph = (id,val)=>{ const e=document.getElementById(id); if(e) e.placeholder=val; };
-  ph('cName', T.contact.name);
-  ph('cPhone', T.contact.phone);
-  ph('cMsg', T.contact.message);
-}
-
-function revealDynamicNow(){
-  document.querySelectorAll('#productGrid .reveal, #galleryGrid .reveal, #serviceGrid .reveal, #industryGrid .reveal, #whyGrid .reveal, #reviewGrid .reveal')
-    .forEach(e=>e.classList.add('in'));
-}
+const UI = {
+  en:{skip:'Skip to main content',language:'Select language',menuOpen:'Open menu',menuClose:'Close menu',all:'All solutions',hot:'Hot water',water:'Water care & pressure',power:'Solar & power',established:'Established',categories:'Solution categories',support:'Sales to service',serving:'Serving Karnataka',since:"SINCE '01",realWork:'Real installation',selectedBrands:'Selected solutions from',projectPrompt:'Planning something similar for your property?',storyQuote:'Right product. Neat installation. Support that stays.',proprietor:'Proprietor · Chitradurga',serviceLead:'One experienced team—from the first site visit to installation and long-term support.',testimonialLead:'Built on careful work, clear guidance and service customers can return to.',formNote:'Tell us what you need. Your details open securely in WhatsApp.',footerPrompt:'Need expert guidance for your property?',viewProject:'View project',opening:'Opening WhatsApp with your enquiry…',popupBlocked:'Please allow pop-ups, or message us directly on WhatsApp.',enquiry:'Product enquiry'},
+  kn:{skip:'ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ',language:'ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ',menuOpen:'ಮೆನು ತೆರೆಯಿರಿ',menuClose:'ಮೆನು ಮುಚ್ಚಿರಿ',all:'ಎಲ್ಲಾ ಪರಿಹಾರಗಳು',hot:'ಬಿಸಿ ನೀರು',water:'ನೀರಿನ ಆರೈಕೆ ಮತ್ತು ಒತ್ತಡ',power:'ಸೌರ ಮತ್ತು ಪವರ್',established:'ಸ್ಥಾಪನೆ',categories:'ಪರಿಹಾರ ವರ್ಗಗಳು',support:'ಮಾರಾಟದಿಂದ ಸೇವೆವರೆಗೆ',serving:'ಕರ್ನಾಟಕದಾದ್ಯಂತ ಸೇವೆ',since:"2001 ರಿಂದ",realWork:'ನೈಜ ಅಳವಡಿಕೆ',selectedBrands:'ಆಯ್ದ ಪರಿಹಾರಗಳು',projectPrompt:'ನಿಮ್ಮ ಆಸ್ತಿಗೆ ಇದೇ ರೀತಿಯ ಯೋಜನೆ ಬೇಕೇ?',storyQuote:'ಸರಿಯಾದ ಉತ್ಪನ್ನ. ಅಚ್ಚುಕಟ್ಟಾದ ಅಳವಡಿಕೆ. ನಿರಂತರ ಬೆಂಬಲ.',proprietor:'ಮಾಲೀಕರು · ಚಿತ್ರದುರ್ಗ',serviceLead:'ಮೊದಲ ಸೈಟ್ ಭೇಟಿಯಿಂದ ಅಳವಡಿಕೆ ಮತ್ತು ದೀರ್ಘಕಾಲೀನ ಬೆಂಬಲದವರೆಗೆ ಒಂದೇ ಅನುಭವಿ ತಂಡ.',testimonialLead:'ಜಾಗರೂಕ ಕೆಲಸ, ಸ್ಪಷ್ಟ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹ ಸೇವೆ.',formNote:'ನಿಮಗೆ ಬೇಕಾದುದನ್ನು ತಿಳಿಸಿ. ನಿಮ್ಮ ವಿವರಗಳು ಸುರಕ್ಷಿತವಾಗಿ WhatsApp ನಲ್ಲಿ ತೆರೆಯುತ್ತವೆ.',footerPrompt:'ನಿಮ್ಮ ಆಸ್ತಿಗೆ ತಜ್ಞ ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ?',viewProject:'ಯೋಜನೆ ನೋಡಿ',opening:'ನಿಮ್ಮ ವಿಚಾರಣೆಯೊಂದಿಗೆ WhatsApp ತೆರೆಯಲಾಗುತ್ತಿದೆ…',popupBlocked:'ದಯವಿಟ್ಟು ಪಾಪ್-ಅಪ್ ಅನುಮತಿಸಿ ಅಥವಾ ನೇರವಾಗಿ WhatsApp ಮಾಡಿ.',enquiry:'ಉತ್ಪನ್ನ ವಿಚಾರಣೆ'},
+  hi:{skip:'मुख्य सामग्री पर जाएं',language:'भाषा चुनें',menuOpen:'मेनू खोलें',menuClose:'मेनू बंद करें',all:'सभी समाधान',hot:'गर्म पानी',water:'वॉटर केयर और प्रेशर',power:'सोलर और पावर',established:'स्थापना',categories:'समाधान श्रेणियाँ',support:'बिक्री से सेवा तक',serving:'कर्नाटक में सेवा',since:"2001 से",realWork:'वास्तविक इंस्टॉलेशन',selectedBrands:'चुनिंदा समाधान',projectPrompt:'अपनी प्रॉपर्टी के लिए ऐसा ही प्रोजेक्ट चाहते हैं?',storyQuote:'सही उत्पाद। साफ इंस्टॉलेशन। भरोसेमंद सहायता।',proprietor:'मालिक · चित्रदुर्ग',serviceLead:'पहली साइट विज़िट से इंस्टॉलेशन और दीर्घकालीन सहायता तक एक अनुभवी टीम।',testimonialLead:'सावधानी से किए काम, स्पष्ट मार्गदर्शन और भरोसेमंद सेवा पर निर्मित।',formNote:'हमें अपनी जरूरत बताएं। आपकी जानकारी सुरक्षित रूप से WhatsApp में खुलेगी।',footerPrompt:'अपनी प्रॉपर्टी के लिए विशेषज्ञ मार्गदर्शन चाहिए?',viewProject:'प्रोजेक्ट देखें',opening:'आपकी पूछताछ के साथ WhatsApp खुल रहा है…',popupBlocked:'पॉप-अप की अनुमति दें या हमें सीधे WhatsApp करें।',enquiry:'उत्पाद पूछताछ'},
+  te:{skip:'ప్రధాన కంటెంట్‌కు వెళ్లండి',language:'భాషను ఎంచుకోండి',menuOpen:'మెను తెరవండి',menuClose:'మెను మూసివేయండి',all:'అన్ని పరిష్కారాలు',hot:'వేడి నీరు',water:'నీటి సంరక్షణ & ప్రెషర్',power:'సోలార్ & పవర్',established:'స్థాపన',categories:'పరిష్కార విభాగాలు',support:'అమ్మకాల నుండి సేవ వరకు',serving:'కర్ణాటకలో సేవలు',since:"2001 నుండి",realWork:'నిజమైన ఇన్‌స్టాలేషన్',selectedBrands:'ఎంచుకున్న పరిష్కారాలు',projectPrompt:'మీ ప్రాపర్టీకి ఇలాంటి ప్రాజెక్ట్ కావాలా?',storyQuote:'సరైన ఉత్పత్తి. చక్కటి ఇన్‌స్టాలేషన్. నిరంతర మద్దతు.',proprietor:'యజమాని · చిత్రదుర్గ',serviceLead:'మొదటి సైట్ విజిట్ నుండి ఇన్‌స్టాలేషన్ మరియు దీర్ఘకాలిక మద్దతు వరకు ఒకే అనుభవజ్ఞులైన బృందం.',testimonialLead:'జాగ్రత్త పని, స్పష్టమైన మార్గదర్శకత్వం మరియు నమ్మకమైన సేవ.',formNote:'మీ అవసరాన్ని తెలియజేయండి. మీ వివరాలు సురక్షితంగా WhatsAppలో తెరవబడతాయి.',footerPrompt:'మీ ప్రాపర్టీకి నిపుణుల మార్గదర్శకత్వం కావాలా?',viewProject:'ప్రాజెక్ట్ చూడండి',opening:'మీ విచారణతో WhatsApp తెరవబడుతోంది…',popupBlocked:'దయచేసి పాప్-అప్‌లను అనుమతించండి లేదా నేరుగా WhatsApp చేయండి.',enquiry:'ఉత్పత్తి విచారణ'},
+  ta:{skip:'முக்கிய உள்ளடக்கத்திற்குச் செல்லவும்',language:'மொழியைத் தேர்ந்தெடுக்கவும்',menuOpen:'மெனுவைத் திறக்கவும்',menuClose:'மெனுவை மூடவும்',all:'அனைத்து தீர்வுகள்',hot:'சூடான நீர்',water:'நீர் பராமரிப்பு & அழுத்தம்',power:'சோலார் & பவர்',established:'நிறுவப்பட்டது',categories:'தீர்வு வகைகள்',support:'விற்பனை முதல் சேவை வரை',serving:'கர்நாடகாவில் சேவை',since:"2001 முதல்",realWork:'உண்மையான நிறுவல்',selectedBrands:'தேர்ந்தெடுத்த தீர்வுகள்',projectPrompt:'உங்கள் சொத்துக்கு இதுபோன்ற திட்டம் வேண்டுமா?',storyQuote:'சரியான தயாரிப்பு. நேர்த்தியான நிறுவல். தொடரும் ஆதரவு.',proprietor:'உரிமையாளர் · சித்ரதுர்கா',serviceLead:'முதல் தள வருகை முதல் நிறுவல் மற்றும் நீண்டகால ஆதரவு வரை ஒரே அனுபவமிக்க குழு.',testimonialLead:'கவனமான பணி, தெளிவான வழிகாட்டுதல் மற்றும் நம்பகமான சேவை.',formNote:'உங்கள் தேவையைத் தெரிவிக்கவும். உங்கள் விவரங்கள் பாதுகாப்பாக WhatsAppல் திறக்கும்.',footerPrompt:'உங்கள் சொத்துக்கு நிபுணர் வழிகாட்டுதல் வேண்டுமா?',viewProject:'திட்டத்தைப் பார்க்கவும்',opening:'உங்கள் விசாரணையுடன் WhatsApp திறக்கப்படுகிறது…',popupBlocked:'பாப்-அப்களை அனுமதிக்கவும் அல்லது நேரடியாக WhatsApp செய்யவும்.',enquiry:'தயாரிப்பு விசாரணை'}
+};
 
 let currentLang = 'en';
-function applyLanguage(lang, initial){
-  const T = (typeof TRANSLATIONS!=='undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : (typeof TRANSLATIONS!=='undefined' ? TRANSLATIONS.en : null);
-  if(!T) return;
-  if(!initial) document.body.classList.add('language-changing');
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  document.documentElement.setAttribute('data-lang', lang);
-  translateStatic(T);
-  renderDynamic(T);
-  if(!initial) {
-    revealDynamicNow();
-    window.setTimeout(()=>document.body.classList.remove('language-changing'), 260);
-  }
-  const sel = document.getElementById('langSelect');
-  if(sel) sel.value = lang;
-  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+let activeFilter = 'all';
+
+const getPath = (object, path) => path.split('.').reduce((value, key) => value == null ? undefined : value[key], object);
+const waLink = message => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+function translatePage(T, U) {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const value = getPath(T, element.dataset.i18n);
+    if (value == null) return;
+    if (element.hasAttribute('data-i18n-html')) element.innerHTML = value;
+    else element.textContent = value;
+  });
+  document.querySelectorAll('[data-ui]').forEach(element => {
+    const value = U[element.dataset.ui];
+    if (value != null) element.textContent = value;
+  });
 }
 
-/* ============ INIT LANGUAGE ============ */
-(function initLang(){
-  const sel = document.getElementById('langSelect');
-  if(sel && typeof LANGS!=='undefined'){
-    sel.innerHTML = Object.keys(LANGS).map(code=>`<option value="${code}">${LANGS[code]}</option>`).join('');
-    sel.addEventListener('change', ()=> applyLanguage(sel.value, false));
-  }
+function renderFilters(U) {
+  const filters = [['all',U.all],['hot',U.hot],['water',U.water],['power',U.power]];
+  document.getElementById('solutionFilters').innerHTML = filters.map(([key,label]) =>
+    `<button class="filter-button${activeFilter === key ? ' active' : ''}" type="button" data-filter="${key}" aria-pressed="${activeFilter === key}">${label}</button>`
+  ).join('');
+}
+
+function renderProducts(T, U) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = PRODUCT_META.map((meta, index) => {
+    const item = T.products.items[index];
+    const hidden = activeFilter !== 'all' && activeFilter !== meta.group;
+    const message = `${U.enquiry}: ${item.name} (${meta.brand})`;
+    return `<article class="product-card${hidden ? ' is-hidden' : ''}" data-group="${meta.group}" style="transition-delay:${(index % 3) * 50}ms">
+      <div class="product-card__media">
+        <img src="${meta.img}" alt="${item.name} — ${meta.brand}" width="${meta.width}" height="${meta.height}" loading="lazy">
+        <span class="product-card__number">${String(index + 1).padStart(2,'0')}</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__meta"><span>${meta.brand}</span><span>${item.tag}</span></div>
+        <h3>${item.name}</h3><p>${item.desc}</p>
+        <a class="product-card__link" href="${waLink(message)}" target="_blank" rel="noopener"><span>${T.products.enquire}</span><i aria-hidden="true">↗</i></a>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function renderProjects(T, U) {
+  document.getElementById('projectGrid').innerHTML = PROJECT_META.map((meta,index) => {
+    const item = T.gallery.items[index];
+    return `<button class="project-card" type="button" data-project="${index}" aria-label="${U.viewProject}: ${item.title}" style="transition-delay:${index * 70}ms">
+      <img src="${meta.img}" alt="${item.title} — ${item.sub}" width="${meta.width}" height="${meta.height}" loading="lazy">
+      <span class="project-card__view" aria-hidden="true">↗</span>
+      <span class="project-card__content"><span>${U.realWork} · 0${index + 1}</span><h3>${item.title}</h3><p>${item.sub}</p></span>
+    </button>`;
+  }).join('');
+}
+
+function renderCommitments(T) {
+  document.getElementById('commitmentGrid').innerHTML = T.commitments.slice(0,6).map(item => `<div class="commitment"><i aria-hidden="true">✓</i><span>${item}</span></div>`).join('');
+}
+
+function renderServices(T) {
+  const journeyIndexes = [4,6,1,8];
+  document.getElementById('journeyGrid').innerHTML = journeyIndexes.map((itemIndex,index) => {
+    const item = T.services.items[itemIndex];
+    return `<li class="journey-step" style="transition-delay:${index * 80}ms"><span class="journey-step__number">0${index + 1}</span><h3>${item.name}</h3><p>${item.desc}</p></li>`;
+  }).join('');
+  const serviceIndexes = [0,1,2,3,7,8];
+  document.getElementById('serviceGrid').innerHTML = serviceIndexes.map((itemIndex,index) => {
+    const item = T.services.items[itemIndex];
+    return `<article class="service-card" style="transition-delay:${(index % 3) * 55}ms"><span>0${index + 1}</span><h3>${item.name}</h3><p>${item.desc}</p></article>`;
+  }).join('');
+}
+
+function renderSectors(T) {
+  document.getElementById('sectorGrid').innerHTML = T.industries.items.map(item => `<span class="sector-chip">${item}</span>`).join('');
+}
+
+function renderReviews(T) {
+  document.getElementById('reviewGrid').innerHTML = REVIEW_META.map((meta,index) => {
+    const item = T.reviews.items[index];
+    return `<article class="testimonial-card" style="transition-delay:${index * 70}ms"><div class="testimonial-stars" aria-hidden="true">★★★★★</div><blockquote>“${item.t}”</blockquote><div class="testimonial-person"><span class="testimonial-avatar">${meta.initial}</span><span><strong>${meta.name}</strong><small>${item.role}</small></span></div></article>`;
+  }).join('');
+}
+
+function renderForm(T) {
+  const select = document.getElementById('cService');
+  const previous = select.value;
+  select.innerHTML = T.contact.options.map(option => `<option value="${option}">${option}</option>`).join('');
+  if ([...select.options].some(option => option.value === previous)) select.value = previous;
+  document.getElementById('cName').placeholder = T.contact.name;
+  document.getElementById('cPhone').placeholder = '+91 00000 00000';
+  document.getElementById('cMsg').placeholder = T.contact.message;
+}
+
+function renderDynamic(T, U) {
+  renderFilters(U);renderProducts(T,U);renderProjects(T,U);renderCommitments(T);renderServices(T);renderSectors(T);renderReviews(T);renderForm(T);
+  requestAnimationFrame(() => document.body.classList.add('content-ready'));
+}
+
+function applyLanguage(lang) {
+  const T = window.TRANSLATIONS?.[lang] || window.TRANSLATIONS?.en;
+  if (!T) return;
+  currentLang = window.TRANSLATIONS[lang] ? lang : 'en';
+  const U = UI[currentLang] || UI.en;
+  document.documentElement.lang = currentLang;
+  document.documentElement.dataset.lang = currentLang;
+  translatePage(T,U);
+  renderDynamic(T,U);
+  const whatsappMessages = {
+    quote: T.hero.quote,
+    project: T.gallery.cta,
+    help: T.about.btn
+  };
+  document.querySelectorAll('[data-wa]').forEach(link => {
+    link.href = waLink(whatsappMessages[link.dataset.wa] || T.hero.quote);
+  });
+  const select = document.getElementById('langSelect');
+  if (select) select.value = currentLang;
+  const toggle = document.getElementById('menuToggle');
+  toggle.setAttribute('aria-label',toggle.getAttribute('aria-expanded') === 'true' ? U.menuClose : U.menuOpen);
+  document.getElementById('navScrim').setAttribute('aria-label',U.menuClose);
+  document.getElementById('dialogClose').setAttribute('aria-label',U.menuClose);
+  try { localStorage.setItem('siteLang',currentLang); } catch (_) {}
+}
+
+(function initializeLanguage() {
+  const select = document.getElementById('langSelect');
+  select.innerHTML = Object.entries(window.LANGS || {en:'English'}).map(([code,label]) => `<option value="${code}">${label}</option>`).join('');
+  select.addEventListener('change',() => applyLanguage(select.value));
   let saved = 'en';
-  try{ saved = localStorage.getItem('siteLang') || 'en'; }catch(e){}
-  if(typeof TRANSLATIONS==='undefined' || !TRANSLATIONS[saved]) saved = 'en';
-  applyLanguage(saved, true);
+  try { saved = localStorage.getItem('siteLang') || 'en'; } catch (_) {}
+  applyLanguage(window.TRANSLATIONS?.[saved] ? saved : 'en');
 })();
 
-/* ============ PRELOADER ============ */
-window.addEventListener('load',()=>{
-  const pre = document.getElementById('preloader');
-  if(pre) setTimeout(()=>pre.classList.add('hide'),500);
-});
-setTimeout(()=>{const p=document.getElementById('preloader');if(p)p.classList.add('hide')},2500);
-
-/* ============ NAV TOGGLE ============ */
-const nav = document.getElementById('nav');
-const toggle = document.getElementById('navToggle');
-toggle.addEventListener('click',()=>{nav.classList.toggle('open');toggle.classList.toggle('open')});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.classList.remove('open')}));
-
-/* ============ WHATSAPP ENQUIRY FORM ============ */
-document.getElementById('enquiryForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const name = document.getElementById('cName').value.trim();
-  const phone = document.getElementById('cPhone').value.trim();
-  const service = document.getElementById('cService').value;
-  const msg = document.getElementById('cMsg').value.trim();
-  let text = `*New Enquiry — Sri Annapurneshwari Electricals*%0A%0A`;
-  text += `*Name:* ${encodeURIComponent(name)}%0A`;
-  text += `*Phone:* ${encodeURIComponent(phone)}%0A`;
-  text += `*Interested In:* ${encodeURIComponent(service)}%0A`;
-  if(msg) text += `*Message:* ${encodeURIComponent(msg)}`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,'_blank');
-  const status = document.getElementById('formStatus');
-  status.textContent = 'Opening WhatsApp — we\'ll reply shortly!';
-  this.reset();
-  setTimeout(()=>status.textContent='',5000);
-});
-
-/* ============ COUNTER ANIMATION ============ */
-function animateCount(el){
-  const target = +el.dataset.count; const dur = 1500; const start = performance.now();
-  function step(now){
-    const prog = Math.min((now-start)/dur,1);
-    const eased = 1-Math.pow(1-prog,3);
-    el.textContent = Math.floor(eased*target).toLocaleString();
-    if(prog<1) requestAnimationFrame(step);
+const nav = document.getElementById('primaryNav');
+const menuToggle = document.getElementById('menuToggle');
+const navScrim = document.getElementById('navScrim');
+function setMenu(open, restoreFocus = false) {
+  const U = UI[currentLang] || UI.en;
+  const wasOpen = nav.classList.contains('open');
+  nav.classList.toggle('open',open);menuToggle.classList.toggle('open',open);navScrim.classList.toggle('show',open);document.body.classList.toggle('menu-open',open);
+  menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open ? U.menuClose : U.menuOpen);
+  if (open) nav.querySelector('a')?.focus();
+  else if (wasOpen && restoreFocus) menuToggle.focus();
+}
+menuToggle.addEventListener('click',() => setMenu(!nav.classList.contains('open'),true));
+navScrim.addEventListener('click',() => setMenu(false,true));
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click',() => setMenu(false,false)));
+document.addEventListener('keydown',event => {
+  if (event.key === 'Tab' && nav.classList.contains('open')) {
+    const focusable = [...nav.querySelectorAll('a[href]')];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault();last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault();first.focus(); }
   }
-  requestAnimationFrame(step);
+  if (event.key !== 'Escape') return;
+  setMenu(false,true);
+  if (document.getElementById('projectDialog').open) document.getElementById('projectDialog').close();
+});
+
+const filters = document.getElementById('solutionFilters');
+filters.addEventListener('click',event => {
+  const button = event.target.closest('[data-filter]');
+  if (!button) return;
+  activeFilter = button.dataset.filter;
+  filters.querySelectorAll('button').forEach(item => { const active = item === button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active)); });
+  document.querySelectorAll('.product-card').forEach(card => card.classList.toggle('is-hidden',activeFilter !== 'all' && card.dataset.group !== activeFilter));
+});
+
+const projectDialog = document.getElementById('projectDialog');
+const dialogImage = document.getElementById('dialogImage');
+const dialogTitle = document.getElementById('dialogTitle');
+const dialogText = document.getElementById('dialogText');
+document.getElementById('projectGrid').addEventListener('click',event => {
+  const card = event.target.closest('[data-project]');
+  if (!card) return;
+  const index = Number(card.dataset.project);
+  const T = window.TRANSLATIONS[currentLang];
+  dialogImage.src = PROJECT_META[index].img;dialogImage.alt = T.gallery.items[index].title;dialogTitle.textContent = T.gallery.items[index].title;dialogText.textContent = T.gallery.items[index].sub;
+  projectDialog.showModal();
+});
+document.getElementById('dialogClose').addEventListener('click',() => projectDialog.close());
+projectDialog.addEventListener('click',event => { if (event.target === projectDialog) projectDialog.close(); });
+
+const enquiryForm = document.getElementById('enquiryForm');
+enquiryForm.addEventListener('submit',event => {
+  event.preventDefault();
+  if (!enquiryForm.reportValidity()) return;
+  const U = UI[currentLang] || UI.en;
+  const T = window.TRANSLATIONS[currentLang];
+  const lines = [
+    `*${T.contact.formTitle} — Sri Annapurneshwari Electricals*`,'',
+    `*${T.contact.name}:* ${document.getElementById('cName').value.trim()}`,
+    `*${T.contact.phone}:* ${document.getElementById('cPhone').value.trim()}`,
+    `*${T.contact.interested}:* ${document.getElementById('cService').value}`
+  ];
+  const message = document.getElementById('cMsg').value.trim();
+  if (message) lines.push(`*${T.contact.message}:* ${message}`);
+  window.open(waLink(lines.join('\n')),'_blank','noopener,noreferrer');
+  const status = document.getElementById('formStatus');
+  status.textContent = U.opening;
+  enquiryForm.reset();
+  window.setTimeout(() => { status.textContent = ''; },5000);
+});
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reducedMotion && 'IntersectionObserver' in window && Element.prototype.animate) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.animate(
+      [{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],
+      {duration:620,easing:'cubic-bezier(.2,.7,.2,1)',fill:'both'}
+    );
+    observer.unobserve(entry.target);
+  }),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(element => {
+    if (!element.closest('.hero')) observer.observe(element);
+  });
 }
 
-/* ============ INTERSECTION OBSERVER (reveal + counters) ============ */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(en=>{
-    if(en.isIntersecting){
-      en.target.classList.add('in');
-      if(en.target.dataset.count!==undefined) animateCount(en.target);
-      io.unobserve(en.target);
-    }
-  });
-},{threshold:.12});
-document.querySelectorAll('.reveal,[data-count]').forEach(el=>io.observe(el));
-
-/* ============ HEADER + PROGRESS + BACK-TO-TOP + ACTIVE NAV ============ */
-const header = document.getElementById('header');
-const toTop = document.getElementById('toTop');
-const progress = document.getElementById('scrollProgress');
-const sections = [...document.querySelectorAll('section[id]')];
-const navLinks = [...document.querySelectorAll('.nav__link')];
-
-window.addEventListener('scroll',()=>{
+const siteHeader = document.getElementById('siteHeader');
+const progress = document.getElementById('pageProgress');
+const navLinks = [...document.querySelectorAll('.primary-nav a')];
+const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+let ticking = false;
+function updateOnScroll() {
   const y = window.scrollY;
-  header.classList.toggle('scrolled', y>10);
-  toTop.classList.toggle('show', y>500);
-  if(progress){
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (h>0 ? (y/h*100) : 0) + '%';
-  }
+  siteHeader.classList.toggle('scrolled',y > 8);
+  const scrollable = document.documentElement.scrollHeight - innerHeight;
+  progress.style.width = `${scrollable > 0 ? Math.min(100,(y / scrollable) * 100) : 0}%`;
   let current = '';
-  sections.forEach(s=>{ if(y >= s.offsetTop-120) current = s.id; });
-  navLinks.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+current));
-},{passive:true});
-
-toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-/* ============ ROBUST EMAIL LINKS ============ */
-(function(){
-  const EMAIL = 'nlokesh29@rediffmail.com';
-  const SUBJECT = 'Enquiry - Electrical & Solar Solutions';
-  const BODY = 'Hello Sri Annapurneshwari Electricals,\n\nI am interested in your products/services. Please contact me.\n\nName:\nPhone:\nLocation:';
-  const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) +
-                '&su=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(BODY);
-  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
-  let toastEl;
-  function toast(msg){
-    if(!toastEl){ toastEl = document.createElement('div'); toastEl.className = 'toast'; document.body.appendChild(toastEl); }
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    clearTimeout(toast._t);
-    toast._t = setTimeout(()=>toastEl.classList.remove('show'), 4000);
-  }
-  document.querySelectorAll('.email-link').forEach(a=>{
-    a.addEventListener('click', function(e){
-      if(isMobile) return;
-      e.preventDefault();
-      window.open(gmail, '_blank', 'noopener');
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(EMAIL).then(()=>toast('Opening Gmail… email copied: ' + EMAIL), ()=>toast('Opening Gmail compose…'));
-      } else { toast('Opening Gmail compose…'); }
-    });
-  });
-})();
-
-/* ============ FOOTER YEAR ============ */
+  sections.forEach(section => { if (y >= section.offsetTop - 150) current = section.id; });
+  navLinks.forEach(link => link.classList.toggle('active',link.hash === `#${current}`));
+  ticking = false;
+}
+window.addEventListener('scroll',() => { if (!ticking) { requestAnimationFrame(updateOnScroll);ticking = true; } },{passive:true});
+updateOnScroll();
 document.getElementById('year').textContent = new Date().getFullYear();
-
-
-
-/* ============ PREMIUM MICRO-INTERACTIONS ============ */
-(function premiumMotion(){
-  const finePointer = window.matchMedia('(pointer:fine)').matches;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced) return;
-
-  // Real-photo hero mosaic follows the pointer very subtly.
-  const visual = document.getElementById('heroVisual');
-  if(visual && finePointer){
-    visual.addEventListener('pointermove', e=>{
-      const r = visual.getBoundingClientRect();
-      const x = (e.clientX-r.left)/r.width-.5;
-      const y = (e.clientY-r.top)/r.height-.5;
-      visual.style.setProperty('--px', `${x*9}px`);
-      visual.style.setProperty('--py', `${y*7}px`);
-    });
-    visual.addEventListener('pointerleave', ()=>{
-      visual.style.setProperty('--px','0px');
-      visual.style.setProperty('--py','0px');
-    });
-  }
-
-  // Delegated spotlight + 3D tilt also works after language re-renders.
-  let activeCard = null;
-  document.addEventListener('pointermove', e=>{
-    const card = e.target.closest('.pcard, .gitem');
-    if(!card) return;
-    activeCard = card;
-    const r = card.getBoundingClientRect();
-    const x = e.clientX-r.left;
-    const y = e.clientY-r.top;
-    card.style.setProperty('--mx', `${x}px`);
-    card.style.setProperty('--my', `${y}px`);
-    if(finePointer && card.classList.contains('pcard')){
-      const rx = ((y/r.height)-.5)*-3.2;
-      const ry = ((x/r.width)-.5)*4.2;
-      card.style.transform = `perspective(900px) translateY(-7px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-    }
-  }, {passive:true});
-  document.addEventListener('pointerout', e=>{
-    const card = e.target.closest('.pcard, .gitem');
-    if(!card || card.contains(e.relatedTarget)) return;
-    if(card.classList.contains('pcard')) card.style.transform='';
-    activeCard = null;
-  }, {passive:true});
-
-  window.addEventListener('blur', ()=>{
-    if(activeCard && activeCard.classList.contains('pcard')) activeCard.style.transform='';
-  });
-})();

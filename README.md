@@ -1,58 +1,53 @@
 # Sri Annapurneshwari Electricals — Official Website
 
-A professional, fully responsive (mobile / tablet / laptop) website for **Sri Annapurneshwari Electricals**, Chitradurga — complete electrical &amp; solar solutions across Karnataka since 2001.
+A professional, multilingual website for **Sri Annapurneshwari Electricals**, Chitradurga — solar, hot-water, water-treatment and power-backup solutions across Karnataka since 2001.
 
-## ✨ Features
+## Website experience
 
-- **Fully responsive** — works on Android, iOS and laptop/desktop screens (breakpoints at 1024px, 820px, 640px, 420px)
-- **WhatsApp integration** everywhere:
-  - Floating WhatsApp button (bottom-right, on every screen)
-  - "Chat on WhatsApp" buttons in the header, hero and call-to-action banner
-  - An **enquiry form** that sends the customer's name, phone, interest &amp; message straight to WhatsApp
-- **Click-to-call** phone links and click-to-email links
-- Sections: Hero, Stats, About &amp; Commitment, Products (8), Services (9), Industries We Serve (9), Why Choose Us, Brands/Partners, Contact, Footer
-- Animated stat counters, scroll-reveal animations, sticky header, mobile slide-out menu
-- SEO meta tags + Open Graph tags
-- **Zero build step, no dependencies** — pure HTML/CSS/JS, loads instantly and hosts anywhere
+- Responsive layouts for mobile, tablet, laptop and wide desktop screens
+- Five languages: English, Kannada, Hindi, Telugu and Tamil
+- Evidence-led hero featuring authentic installation photography
+- Nine products organized into three clear solution groups:
+  - Hot water
+  - Water care and pressure
+  - Solar and power
+- Filterable product catalogue with direct WhatsApp enquiries
+- Authentic three-project installation gallery with an accessible detail dialog
+- Business story, commitments, service journey, sectors served and testimonials
+- Accessible mobile navigation, keyboard focus states, reduced-motion support and semantic landmarks
+- Click-to-call, email, directions and a WhatsApp enquiry form
+- LocalBusiness structured data and social sharing metadata
+- Pure HTML, CSS and JavaScript with no build step
 
-## 📞 Business Details
+The site loads Google Fonts and embeds Google Maps. WhatsApp, email and directions links open their respective external services.
+
+## Business details
 
 | | |
 |---|---|
 | **Proprietor** | N. Lokesh |
 | **Phone / WhatsApp** | 94481 21829 |
 | **Email** | nlokesh29@rediffmail.com |
-| **Address** | #7 &amp; 8, Theosophical Society Complex, Basaveshwara Talkies Road, Chitradurga – 577501, Karnataka |
+| **Address** | #7 & 8, Theosophical Society Complex, Basaveshwara Talkies Road, Chitradurga – 577501, Karnataka |
 
-## 🗂️ Files
+## Files
 
-```
-index.html    # Page structure & content
-styles.css    # Styling & responsive layout
-script.js     # Content data, WhatsApp form, menu, animations
-```
-
-## 🚀 View / Run Locally
-
-Just open `index.html` in any browser, or serve the folder:
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+```text
+index.html       # Semantic page structure, metadata and business details
+styles.css       # Visual system, component styling and responsive layouts
+script.js        # Localization UI, catalogue, filters, menu, dialog and enquiry flow
+translations.js # English, Kannada, Hindi, Telugu and Tamil content
+assets/          # Logo, product images and installation photography
 ```
 
-## 🌐 Deploy (free hosting via GitHub Pages)
+## Run locally
 
-1. Push these files to the `main` branch.
-2. In GitHub → **Settings → Pages**, set **Source = Deploy from a branch**, branch = `main`, folder = `/ (root)`.
-3. Your live site will be available at `https://<username>.github.io/annapurneshwari-electricals/`.
+Open `index.html` directly in a browser, or serve the folder with any static web server.
 
-## 🔧 How to update the WhatsApp number
+## Deployment
 
-Edit the top of `script.js`:
+The project can be hosted on GitHub Pages or any static hosting provider. No build command is required; publish the repository root.
 
-```js
-const WHATSAPP_NUMBER = "919448121829"; // country code + number, no + or spaces
-```
+## Updating the WhatsApp number
 
-Also update the `wa.me/919448121829` links in `index.html` if the number changes.
+Update `WHATSAPP_NUMBER` at the top of `script.js`, then update the `wa.me/919448121829` and `tel:+919448121829` links in `index.html`.
