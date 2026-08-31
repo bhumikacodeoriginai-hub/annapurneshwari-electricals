@@ -566,3 +566,45 @@ body{text-rendering:optimizeLegibility}
   .hero::after{background-size:140% 140%,140% 140%,140% 140%;animation:aurora 22s ease-in-out infinite alternate}
   @keyframes aurora{0%{background-position:0% 0%,100% 0%,50% 100%}100%{background-position:20% 10%,80% 30%,40% 80%}}
 }
+
+
+
+/* ============================================================
+   CINEMATIC VIDEO HERO
+   ============================================================ */
+.hero--video{position:relative;min-height:660px;display:flex;align-items:center;overflow:hidden;padding:120px 0 100px;background:#04101c url('assets/install-solar-etc.jpg') center/cover no-repeat}
+.hero--video::after{display:none!important}
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(3,12,22,.95) 0%,rgba(4,16,28,.82) 36%,rgba(4,16,28,.5) 72%,rgba(4,16,28,.66) 100%)}
+.hero__overlay::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,16,28,.72),transparent 32%)}
+.hero--video .hero__texture{z-index:1;opacity:.45}
+.hero--video .hero__inner{position:relative;z-index:2;display:block}
+.hero--video .hero__copy{max-width:min(760px,100%)}
+.hero--video .hero__lead{color:#cfdadd}
+/* floating anniversary seal */
+.hero__badge{position:absolute;right:5%;bottom:70px;z-index:2}
+/* scroll cue */
+.hero__scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:#cfd9dc;font-size:.58rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.hero__scroll-dot{width:22px;height:36px;border:2px solid rgba(247,204,107,.6);border-radius:12px;position:relative;flex:none}
+.hero__scroll-dot::before{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;border-radius:3px;background:var(--gold-light);transform:translateX(-50%)}
+@media (prefers-reduced-motion: no-preference){
+  .hero__scroll-dot::before{animation:scrollDot 1.8s ease-in-out infinite}
+  @keyframes scrollDot{0%{opacity:0;transform:translate(-50%,0)}25%{opacity:1}70%{opacity:1;transform:translate(-50%,11px)}100%{opacity:0;transform:translate(-50%,13px)}}
+}
+@media (prefers-reduced-motion: reduce){.hero__video{display:none}}
+@media(max-width:900px){
+  .hero--video{min-height:580px;padding:98px 0 88px}
+  .hero__badge{right:4%;bottom:78px}
+}
+@media(max-width:680px){
+  .hero--video{min-height:auto;padding:74px 0 84px}
+  .hero__badge,.hero__scroll{display:none}
+}
+
+/* ============================================================
+   ROBUST EMAIL — copy + toast (helps laptops without a mail app)
+   ============================================================ */
+.email-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);z-index:200;display:flex;align-items:center;gap:9px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:50px;font-size:.82rem;font-weight:700;box-shadow:0 16px 40px rgba(4,16,28,.42);opacity:0;visibility:hidden;transition:opacity .28s,transform .28s,visibility .28s;max-width:92vw;text-align:center}
+.email-toast::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--gold-grad);color:#2a1c00;font-size:.7rem;font-weight:900;flex:none}
+.email-toast.show{opacity:1;visibility:visible;transform:translateX(-50%)}
+@media(max-width:680px){.email-toast{bottom:84px}}
