@@ -31,122 +31,164 @@ const I = {
   check:'<path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/>',
   price:'<path d="M2 12 12 2h9v9L11 21 2 12zm15-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>',
   support:'<path d="M12 2a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h1v-8H6v-1a6 6 0 0 1 12 0v1h-2v8h1a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z"/>',
-  handshake:'<path d="m12 5 2-1.5 6 4.5v9l-3-1-4-4 1-1-2-2-2 2 1 1-3 3-3-2V8l6-4.5L12 5z"/>'
+  handshake:'<path d="m12 5 2-1.5 6 4.5v9l-3-1-4-4 1-1-2-2-2 2 1 1-3 3-3-2V8l6-4.5L12 5z"/>',
+  wa:'<path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/>'
 };
 const svg = (p)=>`<svg viewBox="0 0 24 24">${I[p]||I.check}</svg>`;
+const waSvg = `<svg viewBox="0 0 24 24">${I.wa}</svg>`;
 
-/* ============ DATA ============ */
-const commitments = ['Reliable Products','Trusted Brands','Professional Installation','On-Time Service','Affordable Pricing','Customer First'];
-
-const products = [
-  {img:'assets/install-solar-etc.jpg',name:'Solar Water Heaters',brand:'Redsun',tag:'Best Seller',desc:'ETC & flat-plate solar water heaters — free hot water from the sun for homes, apartments & hostels.'},
-  {img:'assets/redsun-heatpump.jpg',name:'Heat Pump Water Heaters',brand:'Redsun',tag:'Energy Saving',desc:'Air-source heat pumps that deliver hot water day & night, in every season, at low running cost.'},
-  {img:'assets/racold-heater.jpg',name:'Electric Storage Geysers',brand:'Racold',tag:'New',desc:'Durable storage water heaters with digital display for instant, reliable home hot water.'},
-  {img:'assets/vguard-gas.jpg',name:'Gas Water Heaters',brand:'V-Guard',tag:'Instant Hot Water',desc:'Safe-Flo Prime LPG gas geysers for fast, on-demand hot water with safety controls.'},
-  {img:'assets/water-softener.jpg',name:'Water Softeners & Treatment',brand:'Zero B',tag:'Whole-House',desc:'Auto Soft, Iron, Carbon & Sand systems that remove hardness, iron & impurities for the whole house.'},
-  {img:'assets/zerob-ro.jpg',name:'RO Water Purifiers',brand:'Zero B',tag:'Safe Drinking Water',desc:'Kitchenmate RO purifiers for safe, great-tasting drinking water straight from your tap.'},
-  {img:'assets/pressure-pump.jpg',name:'Pressure Booster Pumps',brand:'Constant Pressure',tag:'Strong Flow',desc:'Automatic constant-pressure booster pumps for strong, steady water flow in every tap & shower.'},
-  {img:'assets/exide-power.jpg',name:'Home UPS & Batteries',brand:'Exide',tag:'Power Backup',desc:'Exide Inverterz pure sine-wave inverters & Invahomz tubular batteries for reliable power backup.'},
-  {img:'assets/solar-home.jpg',name:'Solar Rooftop Systems',brand:'V-Guard',tag:'Save on Bills',desc:'On-grid & off-grid rooftop solar power plants to cut your electricity bills for homes & business.'}
+/* ============ STRUCTURAL META (language-independent) ============ */
+const productMeta = [
+  {img:'assets/install-solar-etc.jpg', brand:'Redsun'},
+  {img:'assets/redsun-heatpump.jpg',   brand:'Redsun'},
+  {img:'assets/racold-heater.jpg',     brand:'Racold'},
+  {img:'assets/vguard-gas.jpg',        brand:'V-Guard'},
+  {img:'assets/water-softener.jpg',    brand:'Zero B'},
+  {img:'assets/zerob-ro.jpg',          brand:'Zero B'},
+  {img:'assets/pressure-pump.jpg',     brand:'Booster Pump'},
+  {img:'assets/exide-power.jpg',       brand:'Exide'},
+  {img:'assets/solar-home.jpg',        brand:'V-Guard'}
 ];
-const gallery = [
-  {img:'assets/install-solar-etc.jpg',title:'Redsun Solar Water Heater',sub:'Evacuated-tube rooftop installation'},
-  {img:'assets/install-solar-fpc.jpg',title:'Solar Heater + Heat Pump',sub:'Flat-plate collector & heat pump on terrace'},
-  {img:'assets/install-heatpump.jpg',title:'Commercial Heat Pump System',sub:'High-capacity hot water for bulk use'}
-];
-const services = [
-  {icon:'sales',name:'Sales',desc:'Genuine products at the best price.'},
-  {icon:'install',name:'Installation',desc:'Professional & safe installation.'},
-  {icon:'amc',name:'AMC & Maintenance',desc:'Annual maintenance contracts.'},
-  {icon:'repair',name:'Repair & Service',desc:'Quick, dependable repairs.'},
-  {icon:'survey',name:'Rooftop Survey',desc:'Free site assessment for solar.'},
-  {icon:'battery',name:'Battery Replacement',desc:'On-time battery swaps.'},
-  {icon:'consult',name:'Electrical Consultancy',desc:'Expert guidance for projects.'},
-  {icon:'project',name:'Project Execution',desc:'End-to-end project delivery.'},
-  {icon:'warranty',name:'Warranty Support',desc:'Hassle-free warranty service.'}
-];
-const industries = [
-  {icon:'home',name:'Residential Homes'},{icon:'apartment',name:'Apartments'},
-  {icon:'school',name:'Schools'},{icon:'hospital',name:'Hospitals'},
-  {icon:'hotel',name:'Hotels'},{icon:'building',name:'Commercial Buildings'},
-  {icon:'factory',name:'Factories'},{icon:'industry',name:'Industrial Units'},
-  {icon:'gov',name:'Government Offices'}
-];
-const why = [
-  {icon:'star',t:'25 Years Experience'},{icon:'check',t:'Genuine Products'},
-  {icon:'install',t:'Professional Installation'},{icon:'support',t:'Expert Technical Support'},
-  {icon:'price',t:'Best Price Assurance'},{icon:'project',t:'Commercial & Industrial Projects'},
-  {icon:'home',t:'Residential Projects'},{icon:'amc',t:'Complete Sales & Service'},
-  {icon:'warranty',t:'Trusted Brands'},{icon:'handshake',t:'Customer Satisfaction'}
-];
-const reviews = [
-  {t:'Installed a Redsun solar water heater for my home. Neat work, genuine product and great after-sales service. Highly recommend!',n:'Ramesh K.',r:'Homeowner, Chitradurga',a:'R'},
-  {t:'Fitted a Zero B water softener and RO purifier for us. No more hard-water problems and the water tastes great. Honest pricing too.',n:'Suresh Patil',r:'Apartment Owner',a:'S'},
-  {t:'Their heat pump gives us hot water all day at low cost, and the Exide inverter keeps power on. The team explained everything clearly.',n:'Lakshmi Devi',r:'Resident, Davangere',a:'L'}
-];
-
-/* ============ RENDER ============ */
-document.getElementById('commitGrid').innerHTML = commitments.map(c=>`
-  <div class="commit"><span>${svg('check')}</span>${c}</div>`).join('');
-
-document.getElementById('productGrid').innerHTML = products.map((p,i)=>`
-  <div class="pcard reveal" style="transition-delay:${i*55}ms">
-    <div class="pcard__media">
-      <img src="${p.img}" alt="${p.name} - ${p.brand}" loading="lazy" />
-      <span class="pcard__tag">${p.tag}</span>
-    </div>
-    <div class="pcard__body">
-      <span class="pcard__brand">${p.brand}</span>
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <a class="pcard__link" href="https://wa.me/919448121829?text=${encodeURIComponent('Hi, I am interested in '+p.name+' ('+p.brand+'). Please share details & price.')}" target="_blank" rel="noopener">
-        Enquire on WhatsApp
-        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-      </a>
-    </div>
-  </div>`).join('');
-
-document.getElementById('galleryGrid').innerHTML = gallery.map((g,i)=>`
-  <div class="gitem reveal" style="transition-delay:${i*80}ms">
-    <img src="${g.img}" alt="${g.title} - ${g.sub}" loading="lazy" />
-    <div class="gitem__overlay">
-      <h4>${g.title}</h4>
-      <p>${g.sub}</p>
-    </div>
-  </div>`).join('');
-
-document.getElementById('serviceGrid').innerHTML = services.map((s,i)=>`
-  <div class="service reveal" style="transition-delay:${i*50}ms">
-    <div class="service__ico">${svg(s.icon)}</div>
-    <div><h4>${s.name}</h4><p>${s.desc}</p></div>
-  </div>`).join('');
-
-document.getElementById('industryGrid').innerHTML = industries.map((i,x)=>`
-  <div class="chip reveal" style="transition-delay:${x*40}ms">${svg(i.icon)}<span>${i.name}</span></div>`).join('');
-
-document.getElementById('whyGrid').innerHTML = why.map((w,i)=>`
-  <div class="why-item reveal" style="transition-delay:${i*45}ms">
-    <div class="why-item__ico">${svg(w.icon)}</div>
-    <h4>${w.t}</h4>
-  </div>`).join('');
-
+const galleryMeta = ['assets/install-solar-etc.jpg','assets/install-solar-fpc.jpg','assets/install-heatpump.jpg','assets/solar-home.jpg'];
+const serviceIcons  = ['sales','install','amc','repair','survey','battery','consult','project','warranty'];
+const industryIcons = ['home','apartment','school','hospital','hotel','building','factory','industry','gov'];
+const whyIcons      = ['star','check','install','support','price','project','home','amc','warranty','handshake'];
+const reviewMeta    = [{a:'R',n:'Ramesh K.'},{a:'S',n:'Suresh Patil'},{a:'L',n:'Lakshmi Devi'}];
 const starRow = ('<svg viewBox="0 0 24 24">'+I.star+'</svg>').repeat(5);
-document.getElementById('reviewGrid').innerHTML = reviews.map((rv,i)=>`
-  <div class="review reveal" style="transition-delay:${i*80}ms">
-    <div class="review__stars">${starRow}</div>
-    <p class="review__text">"${rv.t}"</p>
-    <div class="review__person">
-      <div class="review__avatar">${rv.a}</div>
-      <div><div class="review__name">${rv.n}</div><div class="review__role">${rv.r}</div></div>
-    </div>
-  </div>`).join('');
+
+/* ============ i18n ENGINE ============ */
+function getPath(obj, path){ return path.split('.').reduce((o,k)=> (o==null ? undefined : o[k]), obj); }
+
+function translateStatic(T){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = getPath(T, el.getAttribute('data-i18n'));
+    if(v==null) return;
+    if(el.hasAttribute('data-i18n-html')) el.innerHTML = v;
+    else el.textContent = v;
+  });
+}
+
+function waLink(msg){ return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`; }
+
+function renderDynamic(T){
+  // Marquee (duplicated for seamless loop)
+  const mq = T.marquee.map(m=>`<span>${m}</span><i></i>`).join('');
+  document.getElementById('marqueeTrack').innerHTML = mq + mq;
+
+  // Commitments
+  document.getElementById('commitGrid').innerHTML = T.commitments.map(c=>
+    `<div class="commit"><span>${svg('check')}</span>${c}</div>`).join('');
+
+  // Products
+  document.getElementById('productGrid').innerHTML = productMeta.map((m,i)=>{
+    const it = T.products.items[i];
+    const msg = `Enquiry: ${it.name} (${m.brand})`;
+    return `<div class="pcard reveal" style="transition-delay:${i*55}ms">
+      <div class="pcard__media">
+        <img src="${m.img}" alt="${it.name} - ${m.brand}" loading="lazy" />
+        <span class="pcard__tag">${it.tag}</span>
+      </div>
+      <div class="pcard__body">
+        <span class="pcard__brand">${m.brand}</span>
+        <h3>${it.name}</h3>
+        <p>${it.desc}</p>
+        <a class="pcard__link" href="${waLink(msg)}" target="_blank" rel="noopener">${T.products.enquire}${waSvg}</a>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Gallery
+  document.getElementById('galleryGrid').innerHTML = galleryMeta.map((img,i)=>{
+    const it = T.gallery.items[i];
+    return `<div class="gitem reveal" style="transition-delay:${i*80}ms">
+      <img src="${img}" alt="${it.title} - ${it.sub}" loading="lazy" />
+      <div class="gitem__overlay"><h4>${it.title}</h4><p>${it.sub}</p></div>
+    </div>`;
+  }).join('');
+
+  // Services
+  document.getElementById('serviceGrid').innerHTML = serviceIcons.map((ic,i)=>{
+    const it = T.services.items[i];
+    return `<div class="service reveal" style="transition-delay:${i*50}ms">
+      <div class="service__ico">${svg(ic)}</div>
+      <div><h4>${it.name}</h4><p>${it.desc}</p></div>
+    </div>`;
+  }).join('');
+
+  // Industries
+  document.getElementById('industryGrid').innerHTML = industryIcons.map((ic,i)=>
+    `<div class="chip reveal" style="transition-delay:${i*40}ms">${svg(ic)}<span>${T.industries.items[i]}</span></div>`).join('');
+
+  // Why
+  document.getElementById('whyGrid').innerHTML = whyIcons.map((ic,i)=>
+    `<div class="why-item reveal" style="transition-delay:${i*45}ms">
+      <div class="why-item__ico">${svg(ic)}</div><h4>${T.why.items[i]}</h4>
+    </div>`).join('');
+
+  // Reviews
+  document.getElementById('reviewGrid').innerHTML = reviewMeta.map((rm,i)=>{
+    const it = T.reviews.items[i];
+    return `<div class="review reveal" style="transition-delay:${i*80}ms">
+      <div class="review__stars">${starRow}</div>
+      <p class="review__text">&ldquo;${it.t}&rdquo;</p>
+      <div class="review__person">
+        <div class="review__avatar">${rm.a}</div>
+        <div><div class="review__name">${rm.n}</div><div class="review__role">${it.role}</div></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Contact form: options + placeholders
+  const sel = document.getElementById('cService');
+  if(sel){
+    const prev = sel.selectedIndex;
+    sel.innerHTML = T.contact.options.map(o=>`<option>${o}</option>`).join('');
+    if(prev>=0 && prev<sel.options.length) sel.selectedIndex = prev;
+  }
+  const ph = (id,val)=>{ const e=document.getElementById(id); if(e) e.placeholder=val; };
+  ph('cName', T.contact.name);
+  ph('cPhone', T.contact.phone);
+  ph('cMsg', T.contact.message);
+}
+
+function revealDynamicNow(){
+  document.querySelectorAll('#productGrid .reveal, #galleryGrid .reveal, #serviceGrid .reveal, #industryGrid .reveal, #whyGrid .reveal, #reviewGrid .reveal')
+    .forEach(e=>e.classList.add('in'));
+}
+
+let currentLang = 'en';
+function applyLanguage(lang, initial){
+  const T = (typeof TRANSLATIONS!=='undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : (typeof TRANSLATIONS!=='undefined' ? TRANSLATIONS.en : null);
+  if(!T) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  translateStatic(T);
+  renderDynamic(T);
+  if(!initial) revealDynamicNow();
+  const sel = document.getElementById('langSelect');
+  if(sel) sel.value = lang;
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+
+/* ============ INIT LANGUAGE ============ */
+(function initLang(){
+  const sel = document.getElementById('langSelect');
+  if(sel && typeof LANGS!=='undefined'){
+    sel.innerHTML = Object.keys(LANGS).map(code=>`<option value="${code}">${LANGS[code]}</option>`).join('');
+    sel.addEventListener('change', ()=> applyLanguage(sel.value, false));
+  }
+  let saved = 'en';
+  try{ saved = localStorage.getItem('siteLang') || 'en'; }catch(e){}
+  if(typeof TRANSLATIONS==='undefined' || !TRANSLATIONS[saved]) saved = 'en';
+  applyLanguage(saved, true);
+})();
 
 /* ============ PRELOADER ============ */
 window.addEventListener('load',()=>{
   const pre = document.getElementById('preloader');
-  setTimeout(()=>pre.classList.add('hide'),500);
+  if(pre) setTimeout(()=>pre.classList.add('hide'),500);
 });
-// Fallback in case load already fired
 setTimeout(()=>{const p=document.getElementById('preloader');if(p)p.classList.add('hide')},2500);
 
 /* ============ NAV TOGGLE ============ */
@@ -198,9 +240,10 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal,[data-count]').forEach(el=>io.observe(el));
 
-/* ============ HEADER + BACK-TO-TOP + ACTIVE NAV ============ */
+/* ============ HEADER + PROGRESS + BACK-TO-TOP + ACTIVE NAV ============ */
 const header = document.getElementById('header');
 const toTop = document.getElementById('toTop');
+const progress = document.getElementById('scrollProgress');
 const sections = [...document.querySelectorAll('section[id]')];
 const navLinks = [...document.querySelectorAll('.nav__link')];
 
@@ -208,7 +251,10 @@ window.addEventListener('scroll',()=>{
   const y = window.scrollY;
   header.classList.toggle('scrolled', y>10);
   toTop.classList.toggle('show', y>500);
-  // active nav
+  if(progress){
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h>0 ? (y/h*100) : 0) + '%';
+  }
   let current = '';
   sections.forEach(s=>{ if(y >= s.offsetTop-120) current = s.id; });
   navLinks.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+current));
@@ -217,9 +263,6 @@ window.addEventListener('scroll',()=>{
 toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ============ ROBUST EMAIL LINKS ============ */
-/* On mobile, native mailto opens the mail app. On desktop (where mailto often
-   does nothing without a configured mail client), open Gmail compose in a new
-   tab AND copy the address to the clipboard so the link always does something. */
 (function(){
   const EMAIL = 'nlokesh29@rediffmail.com';
   const SUBJECT = 'Enquiry - Electrical & Solar Solutions';
@@ -227,7 +270,6 @@ toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) +
                 '&su=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(BODY);
   const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
-
   let toastEl;
   function toast(msg){
     if(!toastEl){ toastEl = document.createElement('div'); toastEl.className = 'toast'; document.body.appendChild(toastEl); }
@@ -236,20 +278,14 @@ toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
     clearTimeout(toast._t);
     toast._t = setTimeout(()=>toastEl.classList.remove('show'), 4000);
   }
-
   document.querySelectorAll('.email-link').forEach(a=>{
     a.addEventListener('click', function(e){
-      if(isMobile) return; // let native mailto handle it on phones
+      if(isMobile) return;
       e.preventDefault();
       window.open(gmail, '_blank', 'noopener');
       if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(EMAIL).then(
-          ()=>toast('Opening Gmail… email copied: ' + EMAIL),
-          ()=>toast('Opening Gmail compose…')
-        );
-      } else {
-        toast('Opening Gmail compose…');
-      }
+        navigator.clipboard.writeText(EMAIL).then(()=>toast('Opening Gmail… email copied: ' + EMAIL), ()=>toast('Opening Gmail compose…'));
+      } else { toast('Opening Gmail compose…'); }
     });
   });
 })();

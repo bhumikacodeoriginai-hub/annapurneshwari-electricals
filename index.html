@@ -14,10 +14,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- ============ PRELOADER ============ -->
   <div class="preloader" id="preloader">
@@ -36,13 +39,17 @@
           <svg viewBox="0 0 24 24" class="ico"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
           94481 21829
         </a>
-        <a class="topbar__item email-link" href="mailto:nlokesh29@rediffmail.com" data-email="nlokesh29@rediffmail.com">
+        <a class="topbar__item topbar__item--email email-link" href="mailto:nlokesh29@rediffmail.com" data-email="nlokesh29@rediffmail.com">
           <svg viewBox="0 0 24 24" class="ico"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           nlokesh29@rediffmail.com
         </a>
       </div>
       <div class="topbar__right">
-        <span class="topbar__badge"><svg viewBox="0 0 24 24" class="ico"><path d="m12 2 3 6.5 7 .9-5 4.8 1.3 7L12 18l-6.3 3.2L7 14.2 2 9.4l7-.9L12 2z"/></svg> 25 Years of Trusted Service</span>
+        <span class="topbar__badge" data-i18n="topbarBadge">25 Years of Trusted Service</span>
+        <div class="lang-switch">
+          <svg class="lang-switch__globe" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.8a15.7 15.7 0 0 0-1.3-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.1 1.4 2.5 1.8 4h-3.6c.4-1.5 1-2.9 1.8-4zM4.3 14a7.8 7.8 0 0 1 0-4h3.2a17 17 0 0 0 0 4H4.3zm.8 2h2.8c.3 1.3.8 2.5 1.3 3.6A8 8 0 0 1 5.1 16zm2.8-8H5.1a8 8 0 0 1 4.1-3.6C8.7 5.5 8.2 6.7 7.9 8zM12 20c-.8-1.1-1.4-2.5-1.8-4h3.6c-.4 1.5-1 2.9-1.8 4zm2.2-6H9.8a15 15 0 0 1 0-4h4.4a15 15 0 0 1 0 4zm.6 5.6c.5-1.1 1-2.3 1.3-3.6h2.8a8 8 0 0 1-4.1 3.6zM16.5 14a17 17 0 0 0 0-4h3.2a7.8 7.8 0 0 1 0 4h-3.2z"/></svg>
+          <select id="langSelect" aria-label="Select language"></select>
+        </div>
       </div>
     </div>
   </div>
@@ -59,17 +66,17 @@
       </a>
 
       <nav class="nav" id="nav">
-        <a href="#home" class="nav__link">Home</a>
-        <a href="#about" class="nav__link">About</a>
-        <a href="#products" class="nav__link">Products</a>
-        <a href="#gallery" class="nav__link">Gallery</a>
-        <a href="#services" class="nav__link">Services</a>
-        <a href="#industries" class="nav__link">We Serve</a>
-        <a href="#reviews" class="nav__link">Reviews</a>
-        <a href="#contact" class="nav__link">Contact</a>
+        <a href="#home" class="nav__link" data-i18n="nav.home">Home</a>
+        <a href="#about" class="nav__link" data-i18n="nav.about">About</a>
+        <a href="#products" class="nav__link" data-i18n="nav.products">Products</a>
+        <a href="#gallery" class="nav__link" data-i18n="nav.gallery">Gallery</a>
+        <a href="#services" class="nav__link" data-i18n="nav.services">Services</a>
+        <a href="#industries" class="nav__link" data-i18n="nav.serve">We Serve</a>
+        <a href="#reviews" class="nav__link" data-i18n="nav.reviews">Reviews</a>
+        <a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a>
         <a href="https://wa.me/919448121829?text=Hi%2C%20I%20am%20interested%20in%20your%20electrical%20%26%20solar%20solutions." class="btn btn--wa nav__cta" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" class="ico"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-          WhatsApp
+          <span data-i18n="nav.whatsapp">WhatsApp</span>
         </a>
       </nav>
 
@@ -91,22 +98,22 @@
       <div class="hero__content">
         <div class="hero__badge reveal">
           <svg viewBox="0 0 24 24" class="ico--star"><path d="m12 2 3 6.5 7 .9-5 4.8 1.3 7L12 18l-6.3 3.2L7 14.2 2 9.4l7-.9L12 2z"/></svg>
-          Karnataka's Trusted Energy Partner Since 2001
+          <span data-i18n="hero.badge">Karnataka's Trusted Energy Partner Since 2001</span>
         </div>
-        <h1 class="hero__title reveal">Power Your World with <span class="grad-text">Solar &amp; Electrical</span> Solutions</h1>
-        <p class="hero__sub reveal">Solar &amp; heat-pump water heaters, gas &amp; electric geysers, water softeners, RO purifiers, pressure pumps, solar rooftop and Exide power backup — genuine products, expert installation and dependable service across Karnataka.</p>
+        <h1 class="hero__title reveal" data-i18n="hero.title" data-i18n-html>Power Your World with <span class="grad-text">Solar &amp; Electrical</span> Solutions</h1>
+        <p class="hero__sub reveal" data-i18n="hero.sub">Solar &amp; heat-pump water heaters, gas &amp; electric geysers, water softeners, RO purifiers, pressure pumps, solar rooftop and Exide power backup — genuine products, expert installation and dependable service across Karnataka.</p>
         <div class="hero__cta reveal">
           <a href="https://wa.me/919448121829?text=Hi%2C%20I%20would%20like%20a%20free%20quote%20for%20your%20electrical%20%26%20solar%20solutions." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" class="ico"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-            Get a Free Quote
+            <span data-i18n="hero.quote">Get a Free Quote</span>
           </a>
           <a href="tel:+919448121829" class="btn btn--glass btn--lg">
             <svg viewBox="0 0 24 24" class="ico"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
-            Call Now
+            <span data-i18n="hero.call">Call Now</span>
           </a>
         </div>
         <div class="hero__trust reveal">
-          <span>Authorized Partner:</span>
+          <span data-i18n="hero.trust">Authorized Partner:</span>
           <b>V-GUARD</b><b>EXIDE</b><b>Redsun</b><b>Racold</b><b>Zero B</b>
         </div>
       </div>
@@ -116,12 +123,12 @@
           <img src="assets/solar-home.jpg" alt="Rooftop solar panels installed on a modern home" loading="eager" width="716" height="428" />
           <span class="hero__photo-tag">
             <svg viewBox="0 0 24 24"><path d="M4 3h16l2 9H2L4 3zm-.6 11h17.2l-1 3H4.4l-1-3zM7 19h10v2H7v-2z"/></svg>
-            Rooftop Solar Installations
+            <span data-i18n="hero.photoTag">Rooftop Solar Installations</span>
           </span>
           <div class="hero__floating-stats">
-            <div class="mini-stat"><span class="mini-stat__num" data-count="25">0</span><small>Years</small></div>
-            <div class="mini-stat"><span class="mini-stat__num" data-count="5000">0</span><small>Customers</small></div>
-            <div class="mini-stat"><span class="mini-stat__num" data-count="8">0</span><small>Categories</small></div>
+            <div class="mini-stat"><span class="mini-stat__num" data-count="25">0</span><small data-i18n="hero.years">Years</small></div>
+            <div class="mini-stat"><span class="mini-stat__num" data-count="5000">0</span><small data-i18n="hero.customers">Customers</small></div>
+            <div class="mini-stat"><span class="mini-stat__num" data-count="8">0</span><small data-i18n="hero.categories">Categories</small></div>
           </div>
         </div>
       </div>
@@ -131,36 +138,33 @@
 
   <!-- ============ MARQUEE ============ -->
   <div class="marquee">
-    <div class="marquee__track">
-      <span>Solar Water Heaters</span><i></i><span>Heat Pumps</span><i></i><span>Gas Geysers</span><i></i><span>Electric Geysers</span><i></i><span>Water Softeners</span><i></i><span>RO Purifiers</span><i></i><span>Pressure Pumps</span><i></i><span>Solar Rooftop</span><i></i><span>Exide Power Backup</span><i></i><span>Installation &amp; Service</span><i></i>
-      <span>Solar Water Heaters</span><i></i><span>Heat Pumps</span><i></i><span>Gas Geysers</span><i></i><span>Electric Geysers</span><i></i><span>Water Softeners</span><i></i><span>RO Purifiers</span><i></i><span>Pressure Pumps</span><i></i><span>Solar Rooftop</span><i></i><span>Exide Power Backup</span><i></i><span>Installation &amp; Service</span><i></i>
-    </div>
+    <div class="marquee__track" id="marqueeTrack"></div>
   </div>
 
   <!-- ============ ABOUT ============ -->
   <section class="section" id="about">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Who We Are</span>
-        <h2>25 Years of Trusted Sales &amp; Service Across Karnataka</h2>
+        <span class="eyebrow" data-i18n="about.eyebrow">Who We Are</span>
+        <h2 data-i18n="about.h2">25 Years of Trusted Sales &amp; Service Across Karnataka</h2>
       </div>
       <div class="about">
         <div class="about__text reveal">
-          <p><strong>Sri Annapurneshwari Electricals</strong> has served customers across Karnataka since 2001. Based in Chitradurga and led by proprietor <strong>N. Lokesh</strong>, we are your trusted single-window partner for complete electrical and solar energy solutions.</p>
-          <p>Our range covers solar &amp; heat-pump water heaters, gas &amp; electric geysers, water softeners, RO purifiers, pressure booster pumps, solar rooftop systems and Exide power backup — with genuine products, professional installation and dependable after-sales service.</p>
+          <p data-i18n="about.p1"><strong>Sri Annapurneshwari Electricals</strong> has served customers across Karnataka since 2001. Based in Chitradurga and led by proprietor <strong>N. Lokesh</strong>, we are your trusted single-window partner for complete electrical and solar energy solutions.</p>
+          <p data-i18n="about.p2">Our range covers solar &amp; heat-pump water heaters, gas &amp; electric geysers, water softeners, RO purifiers, pressure booster pumps, solar rooftop systems and Exide power backup — with genuine products, professional installation and dependable after-sales service.</p>
           <ul class="about__points">
-            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Authorized dealer for trusted national brands</li>
-            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Complete sales, installation &amp; service under one roof</li>
-            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Expert technical support &amp; best-price assurance</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> <span data-i18n="about.points.0">Authorized dealer for trusted national brands</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> <span data-i18n="about.points.1">Complete sales, installation &amp; service under one roof</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> <span data-i18n="about.points.2">Expert technical support &amp; best-price assurance</span></li>
           </ul>
-          <a href="#contact" class="btn btn--primary">Talk to Our Experts</a>
+          <a href="#contact" class="btn btn--primary" data-i18n="about.btn">Talk to Our Experts</a>
         </div>
         <div class="about__side reveal">
           <div class="about__img">
             <img src="assets/solar-home.jpg" alt="Rooftop solar panel installation on a home by Sri Annapurneshwari Electricals" loading="lazy" width="716" height="428" />
           </div>
           <div class="about__commit">
-            <h3>Our Commitment</h3>
+            <h3 data-i18n="about.commitTitle">Our Commitment</h3>
             <div class="commit__grid" id="commitGrid"></div>
           </div>
         </div>
@@ -172,9 +176,9 @@
   <section class="section section--alt" id="products">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Our Products</span>
-        <h2>Water Heating, Purification, Pumps &amp; Power Backup</h2>
-        <p class="section__lead">From solar &amp; heat-pump water heaters to water softeners, RO purifiers, pressure pumps and Exide power backup — genuine products from trusted brands, all under one roof.</p>
+        <span class="eyebrow" data-i18n="products.eyebrow">Our Products</span>
+        <h2 data-i18n="products.h2">Water Heating, Purification, Pumps &amp; Power Backup</h2>
+        <p class="section__lead" data-i18n="products.lead">From solar &amp; heat-pump water heaters to water softeners, RO purifiers, pressure pumps and Exide power backup — genuine products from trusted brands, all under one roof.</p>
       </div>
       <div class="pcards" id="productGrid"></div>
     </div>
@@ -184,15 +188,15 @@
   <section class="section" id="gallery">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Our Work</span>
-        <h2>Real Installations Across Karnataka</h2>
-        <p class="section__lead">A glimpse of the solar water heaters and heat pump systems we've installed for happy customers.</p>
+        <span class="eyebrow" data-i18n="gallery.eyebrow">Our Work</span>
+        <h2 data-i18n="gallery.h2">Real Installations Across Karnataka</h2>
+        <p class="section__lead" data-i18n="gallery.lead">A glimpse of the solar water heaters and heat pump systems we've installed for happy customers.</p>
       </div>
       <div class="gallery" id="galleryGrid"></div>
       <div class="gallery__cta reveal">
         <a href="https://wa.me/919448121829?text=Hi%2C%20I%20saw%20your%20installations%20and%20would%20like%20a%20site%20visit%2Fquote." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" class="ico"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-          Book a Free Site Visit
+          <span data-i18n="gallery.cta">Book a Free Site Visit</span>
         </a>
       </div>
     </div>
@@ -202,8 +206,8 @@
   <section class="section" id="services">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Our Services</span>
-        <h2>End-to-End Service You Can Rely On</h2>
+        <span class="eyebrow" data-i18n="services.eyebrow">Our Services</span>
+        <h2 data-i18n="services.h2">End-to-End Service You Can Rely On</h2>
       </div>
       <div class="services" id="serviceGrid"></div>
     </div>
@@ -214,8 +218,8 @@
     <div class="section__glow"></div>
     <div class="container">
       <div class="section__head section__head--light reveal">
-        <span class="eyebrow">We Serve</span>
-        <h2>Solutions for Every Sector</h2>
+        <span class="eyebrow" data-i18n="industries.eyebrow">We Serve</span>
+        <h2 data-i18n="industries.h2">Solutions for Every Sector</h2>
       </div>
       <div class="chips" id="industryGrid"></div>
     </div>
@@ -225,8 +229,8 @@
   <section class="section section--alt" id="why">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Why Choose Us</span>
-        <h2>The Trusted Choice for 25 Years</h2>
+        <span class="eyebrow" data-i18n="why.eyebrow">Why Choose Us</span>
+        <h2 data-i18n="why.h2">The Trusted Choice for 25 Years</h2>
       </div>
       <div class="why" id="whyGrid"></div>
     </div>
@@ -236,17 +240,17 @@
   <section class="section" id="brands">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Trusted Partnerships</span>
-        <h2>Authorized Dealer &amp; Channel Partner</h2>
+        <span class="eyebrow" data-i18n="brands.eyebrow">Trusted Partnerships</span>
+        <h2 data-i18n="brands.h2">Authorized Dealer &amp; Channel Partner</h2>
       </div>
       <div class="brands reveal">
         <div class="brand-card brand-card--feature">
           <div class="brand-card__logo">V&#8209;GUARD</div>
-          <p><strong>Authorized Channel Partner</strong><br>Solar Rooftop Solutions</p>
+          <p><strong data-i18n="brands.featureTitle">Authorized Channel Partner</strong><br><span data-i18n="brands.featureSub">Solar Rooftop Solutions</span></p>
         </div>
-        <div class="brand-card"><div class="brand-card__logo">EXIDE</div><p>Home UPS &amp; Batteries</p></div>
-        <div class="brand-card"><div class="brand-card__logo">Racold</div><p>Heat Pumps</p></div>
-        <div class="brand-card"><div class="brand-card__logo">Redsun</div><p>Heat Pumps</p></div>
+        <div class="brand-card"><div class="brand-card__logo">EXIDE</div><p data-i18n="brands.exide">Home UPS &amp; Batteries</p></div>
+        <div class="brand-card"><div class="brand-card__logo">Racold</div><p data-i18n="brands.racold">Heat Pumps</p></div>
+        <div class="brand-card"><div class="brand-card__logo">Redsun</div><p data-i18n="brands.redsun">Heat Pumps</p></div>
       </div>
     </div>
   </section>
@@ -255,8 +259,8 @@
   <section class="section section--alt" id="reviews">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Happy Customers</span>
-        <h2>What Our Customers Say</h2>
+        <span class="eyebrow" data-i18n="reviews.eyebrow">Happy Customers</span>
+        <h2 data-i18n="reviews.h2">What Our Customers Say</h2>
       </div>
       <div class="reviews" id="reviewGrid"></div>
     </div>
@@ -267,12 +271,12 @@
     <div class="cta-banner__shine"></div>
     <div class="container cta-banner__inner">
       <div>
-        <h2>Ready to Save on Your Energy Bills?</h2>
-        <p>Talk to our team for the right electrical &amp; solar solution at the best price.</p>
+        <h2 data-i18n="cta.h2">Ready to Save on Your Energy Bills?</h2>
+        <p data-i18n="cta.p">Talk to our team for the right electrical &amp; solar solution at the best price.</p>
       </div>
       <a href="https://wa.me/919448121829?text=Hi%2C%20I%20would%20like%20a%20free%20quote." class="btn btn--dark btn--lg" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" class="ico"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-        Message Us Now
+        <span data-i18n="cta.btn">Message Us Now</span>
       </a>
     </div>
   </section>
@@ -281,27 +285,27 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section__head reveal">
-        <span class="eyebrow">Contact Us</span>
-        <h2>Get in Touch</h2>
-        <p class="section__lead">We're here to help — reach us by phone, WhatsApp, email or visit our store.</p>
+        <span class="eyebrow" data-i18n="contact.eyebrow">Contact Us</span>
+        <h2 data-i18n="contact.h2">Get in Touch</h2>
+        <p class="section__lead" data-i18n="contact.lead">We're here to help — reach us by phone, WhatsApp, email or visit our store.</p>
       </div>
       <div class="contact">
         <div class="contact__info reveal">
           <a class="info-row" href="https://www.google.com/maps/search/?api=1&query=Theosophical%20Society%20Complex%2C%20Basaveshwara%20Talkies%20Road%2C%20Chitradurga%20577501" target="_blank" rel="noopener">
             <span class="info-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
-            <div><h4>Visit Our Store</h4><p>#7 &amp; 8, Theosophical Society Complex, Basaveshwara Talkies Road, Chitradurga &ndash; 577501, Karnataka</p><span class="info-link">Get Directions</span></div>
+            <div><h4 data-i18n="contact.visitTitle">Visit Our Store</h4><p>#7 &amp; 8, Theosophical Society Complex, Basaveshwara Talkies Road, Chitradurga &ndash; 577501, Karnataka</p><span class="info-link" data-i18n="contact.directions">Get Directions</span></div>
           </a>
           <a class="info-row" href="tel:+919448121829">
             <span class="info-ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg></span>
-            <div><h4>Call / WhatsApp</h4><p>94481 21829</p><span class="info-link">Tap to call</span></div>
+            <div><h4 data-i18n="contact.callTitle">Call / WhatsApp</h4><p>94481 21829</p><span class="info-link" data-i18n="contact.tapCall">Tap to call</span></div>
           </a>
           <a class="info-row email-link" href="mailto:nlokesh29@rediffmail.com?subject=Enquiry%20-%20Electrical%20%26%20Solar%20Solutions" data-email="nlokesh29@rediffmail.com">
             <span class="info-ico"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-            <div><h4>Email Us</h4><p>nlokesh29@rediffmail.com</p><span class="info-link">Send email</span></div>
+            <div><h4 data-i18n="contact.emailTitle">Email Us</h4><p>nlokesh29@rediffmail.com</p><span class="info-link" data-i18n="contact.sendEmail">Send email</span></div>
           </a>
           <div class="info-row info-row--static">
             <span class="info-ico"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-9 2-9 6v2h18v-2c0-4-5-6-9-6z"/></svg></span>
-            <div><h4>Proprietor</h4><p>N. Lokesh</p></div>
+            <div><h4 data-i18n="contact.propTitle">Proprietor</h4><p>N. Lokesh</p></div>
           </div>
 
           <div class="map">
@@ -313,30 +317,18 @@
         </div>
 
         <div class="contact__form reveal">
-          <h3>Send an Enquiry</h3>
-          <p class="contact__form-note">Fill this form and we'll reply on WhatsApp instantly.</p>
+          <h3 data-i18n="contact.formTitle">Send an Enquiry</h3>
+          <p class="contact__form-note" data-i18n="contact.formNote">Fill this form and we'll reply on WhatsApp instantly.</p>
           <form id="enquiryForm">
-            <div class="field"><label for="cName">Name</label><input type="text" id="cName" required placeholder="Your full name" /></div>
-            <div class="field"><label for="cPhone">Phone</label><input type="tel" id="cPhone" required placeholder="Your phone number" /></div>
-            <div class="field"><label for="cService">Interested In</label>
-              <select id="cService">
-                <option>Solar Water Heater (Redsun)</option>
-                <option>Heat Pump Water Heater (Redsun)</option>
-                <option>Electric Storage Geyser (Racold)</option>
-                <option>Gas Water Heater (V-Guard)</option>
-                <option>Water Softener / Treatment (Zero B)</option>
-                <option>RO Water Purifier (Zero B)</option>
-                <option>Pressure Booster Pump</option>
-                <option>Home UPS &amp; Batteries (Exide)</option>
-                <option>Solar Rooftop System</option>
-                <option>Installation / Service / AMC</option>
-                <option>Other</option>
-              </select>
+            <div class="field"><label for="cName" data-i18n="contact.name">Name</label><input type="text" id="cName" required placeholder="" /></div>
+            <div class="field"><label for="cPhone" data-i18n="contact.phone">Phone</label><input type="tel" id="cPhone" required placeholder="" /></div>
+            <div class="field"><label for="cService" data-i18n="contact.interested">Interested In</label>
+              <select id="cService"></select>
             </div>
-            <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" rows="3" placeholder="Tell us what you need"></textarea></div>
+            <div class="field"><label for="cMsg" data-i18n="contact.message">Message</label><textarea id="cMsg" rows="3" placeholder=""></textarea></div>
             <button type="submit" class="btn btn--wa btn--block">
               <svg viewBox="0 0 24 24" class="ico"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>
-              Send via WhatsApp
+              <span data-i18n="contact.send">Send via WhatsApp</span>
             </button>
             <p class="form-status" id="formStatus"></p>
           </form>
@@ -353,7 +345,7 @@
           <span class="brand__mark">SA</span>
           <span class="brand__text"><strong>Sri Annapurneshwari</strong><small>Electricals &middot; Since 2001</small></span>
         </div>
-        <p class="footer__about">Your trusted partner for complete electrical &amp; solar energy solutions across Karnataka.</p>
+        <p class="footer__about" data-i18n="footer.about">Your trusted partner for complete electrical &amp; solar energy solutions across Karnataka.</p>
         <div class="footer__social">
           <a href="https://wa.me/919448121829" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg></a>
           <a href="tel:+919448121829" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg></a>
@@ -361,15 +353,15 @@
         </div>
       </div>
       <div class="footer__col">
-        <h4>Quick Links</h4>
-        <a href="#about">About Us</a><a href="#products">Products</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+        <h4 data-i18n="footer.quickTitle">Quick Links</h4>
+        <a href="#about" data-i18n="nav.about">About Us</a><a href="#products" data-i18n="nav.products">Products</a><a href="#services" data-i18n="nav.services">Services</a><a href="#reviews" data-i18n="nav.reviews">Reviews</a><a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
       <div class="footer__col">
-        <h4>Our Products</h4>
-        <a href="#products">Solar &amp; Heat Pump Heaters</a><a href="#products">Gas &amp; Electric Geysers</a><a href="#products">Water Softeners &amp; RO</a><a href="#products">Pressure Pumps</a><a href="#products">Solar Rooftop &amp; Exide Backup</a>
+        <h4 data-i18n="footer.prodTitle">Our Products</h4>
+        <a href="#products" data-i18n="footer.prod.0">Solar &amp; Heat Pump Heaters</a><a href="#products" data-i18n="footer.prod.1">Gas &amp; Electric Geysers</a><a href="#products" data-i18n="footer.prod.2">Water Softeners &amp; RO</a><a href="#products" data-i18n="footer.prod.3">Pressure Pumps</a><a href="#products" data-i18n="footer.prod.4">Solar Rooftop &amp; Exide Backup</a>
       </div>
       <div class="footer__col">
-        <h4>Reach Us</h4>
+        <h4 data-i18n="footer.reachTitle">Reach Us</h4>
         <p>#7 &amp; 8, Theosophical Society Complex, Basaveshwara Talkies Road, Chitradurga &ndash; 577501</p>
         <p><a href="tel:+919448121829">Call: 94481 21829</a></p>
         <p><a href="mailto:nlokesh29@rediffmail.com" class="email-link" data-email="nlokesh29@rediffmail.com">nlokesh29@rediffmail.com</a></p>
@@ -377,8 +369,8 @@
     </div>
     <div class="footer__bar">
       <div class="container">
-        <p>&copy; <span id="year"></span> Sri Annapurneshwari Electricals. All rights reserved.</p>
-        <p class="footer__tag">Powering Homes &middot; Empowering Businesses &middot; Energizing Karnataka</p>
+        <p>&copy; <span id="year"></span> Sri Annapurneshwari Electricals. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p class="footer__tag" data-i18n="footer.tagline">Powering Homes &middot; Empowering Businesses &middot; Energizing Karnataka</p>
       </div>
     </div>
   </footer>
@@ -395,6 +387,7 @@
     <svg viewBox="0 0 24 24"><path d="M12 4l8 8-1.4 1.4L13 7.8V20h-2V7.8l-5.6 5.6L4 12z"/></svg>
   </button>
 
+  <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -25,11 +25,24 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-family:'Plus Jakarta Sans','Noto Sans Kannada','Noto Sans Devanagari','Noto Sans Telugu','Noto Sans Tamil',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color:var(--ink);background:var(--bg);line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.18;color:var(--navy);letter-spacing:-.02em}
+h1,h2,h3,h4{font-family:'Sora','Noto Sans Kannada','Noto Sans Devanagari','Noto Sans Telugu','Noto Sans Tamil',sans-serif;line-height:1.22;color:var(--navy);letter-spacing:-.02em}
+/* Slightly looser line-height for Indic scripts (taller glyphs) */
+html[data-lang="kn"] h1,html[data-lang="hi"] h1,html[data-lang="te"] h1,html[data-lang="ta"] h1{line-height:1.3}
+html[data-lang="kn"] body,html[data-lang="hi"] body,html[data-lang="te"] body,html[data-lang="ta"] body{line-height:1.75}
+
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:9998;background:var(--grad-gold);box-shadow:0 0 10px rgba(245,179,1,.6);transition:width .1s linear}
+
+/* ============ LANGUAGE SWITCHER ============ */
+.lang-switch{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:3px 6px 3px 10px;transition:.2s}
+.lang-switch:hover{background:rgba(255,255,255,.16)}
+.lang-switch__globe{width:16px;height:16px;fill:var(--gold-2);flex:none}
+.lang-switch select{background:transparent;border:0;color:#fff;font-family:'Plus Jakarta Sans','Noto Sans Kannada','Noto Sans Devanagari','Noto Sans Telugu','Noto Sans Tamil',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;outline:none;padding:4px 2px}
+.lang-switch select option{color:#111;background:#fff}
 a{color:inherit;text-decoration:none}
 img,svg{max-width:100%;display:block}
 .ico{width:20px;height:20px;fill:currentColor;flex:none}
@@ -72,8 +85,9 @@ img,svg{max-width:100%;display:block}
 
 /* ============ TOP BAR ============ */
 .topbar{background:var(--navy-deep);color:#c9d3f5;font-size:.85rem}
-.topbar__inner{display:flex;justify-content:space-between;align-items:center;min-height:42px;gap:16px;flex-wrap:wrap}
+.topbar__inner{display:flex;justify-content:space-between;align-items:center;min-height:42px;gap:14px;flex-wrap:wrap}
 .topbar__left{display:flex;gap:22px;flex-wrap:wrap}
+.topbar__right{display:flex;align-items:center;gap:14px}
 .topbar__item{display:flex;align-items:center;gap:7px}
 .topbar__item .ico{width:15px;height:15px;fill:var(--gold)}
 .topbar__item:hover{color:var(--gold-2)}
@@ -384,7 +398,9 @@ a.info-row:hover .info-link::after{transform:rotate(45deg) translate(2px,-2px)}
   .footer__inner{grid-template-columns:1fr;gap:28px}
   .footer__bar .container{flex-direction:column;text-align:center}
   .topbar__left{gap:14px}
-  .topbar__right{display:none}
+  .topbar__badge{display:none}
+  .topbar__item--email{display:none}
+  .topbar__inner{justify-content:space-between}
   .hero__trust{gap:8px}
 }
 @media(max-width:440px){
