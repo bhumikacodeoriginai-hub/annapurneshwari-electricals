@@ -89,9 +89,13 @@
   <button class="nav-scrim" id="navScrim" type="button" tabindex="-1" aria-label="Close menu"></button>
 
   <main id="main">
-    <section class="hero" id="home">
+    <section class="hero hero--video" id="home">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/install-solar-etc.jpg" aria-hidden="true">
+        <source src="assets/video%20file.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__texture" aria-hidden="true"></div>
-      <div class="container hero__grid">
+      <div class="container hero__inner">
         <div class="hero__copy">
           <div class="hero__kicker reveal"><span></span><span data-ui="trustQuality">25 Years of Trust, Quality &amp; Service</span></div>
           <h1 class="reveal" data-i18n="hero.title" data-i18n-html>Power Your World with <span class="accent-text">Solar &amp; Electrical</span> Solutions</h1>
@@ -111,18 +115,12 @@
             <div><strong>360°</strong><span data-ui="support">Sales to service</span></div>
           </div>
         </div>
-
-        <div class="hero__visual reveal">
-          <figure class="hero__photo hero__photo--main">
-            <img src="assets/install-solar-etc.jpg" alt="Redsun solar water heater installed on a Karnataka rooftop" width="1024" height="576" fetchpriority="high" />
-          </figure>
-          <figure class="hero__photo hero__photo--detail">
-            <img src="assets/install-heatpump.jpg" alt="Commercial heat pump and hot-water installation" width="1024" height="461" fetchpriority="high" />
-          </figure>
-          <div class="hero__seal"><span class="seal"><b>25</b><span data-ui="years">Years</span><i data-ui="ofTrust">of trust</i></span></div>
-          <div class="hero__caption"><i></i><span data-i18n="gallery.items.0.title">Redsun Solar Water Heater</span><small data-ui="realWork">Real installation</small></div>
-        </div>
       </div>
+      <span class="seal hero__badge reveal"><b>25</b><span data-ui="years">Years</span><i data-ui="ofTrust">of trust</i></span>
+      <a class="hero__scroll" href="#solutions" aria-label="Scroll to explore our solutions">
+        <span class="hero__scroll-dot"></span>
+        <span data-ui="scroll">Scroll</span>
+      </a>
     </section>
 
     <section class="trust-rail" aria-label="Brand partners">
