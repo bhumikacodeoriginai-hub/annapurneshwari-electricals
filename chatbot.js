@@ -21,7 +21,9 @@
     maps: 'https://www.google.com/maps/search/?api=1&query=Sri%20Annapurneshwari%20Electricals%2C%20Basaveshwara%20Talkies%20Road%2C%20Vijayanagar%2C%20Chitradurga%2C%20Karnataka%20577501',
     opensAt: '9:00 AM',
     proprietor: 'N. Lokesh',
-    since: '2001'
+    since: '2001',
+    instagram: 'https://www.instagram.com/lo.kesh5907/',
+    instaHandle: '@lo.kesh5907'
   };
 
   var wa = function (text) { return 'https://wa.me/' + BIZ.waNumber + (text ? '?text=' + encodeURIComponent(text) : ''); };
@@ -34,7 +36,7 @@
       launch: 'Chat with us', title: 'Help Assistant', status: 'Online · we usually reply fast',
       close: 'Close chat', placeholder: 'Type your question…', send: 'Send',
       greeting: "Namaste! \uD83D\uDE4F I'm the Sri Annapurneshwari Electricals assistant. Ask me about our products, services, location or contact — or pick an option below.",
-      chips: { products: 'Products', services: 'Services', quote: 'Get a quote', location: 'Location', contact: 'Contact', brands: 'Brands' },
+      chips: { products: 'Products', services: 'Services', quote: 'Get a quote', location: 'Location', contact: 'Contact', brands: 'Brands', instagram: 'Instagram' },
       productsIntro: 'We offer complete solar, water &amp; power solutions:',
       productsOutro: 'Ask me about any product, or tap <strong>Get a quote</strong>.',
       servicesIntro: 'Our services include:',
@@ -52,13 +54,13 @@
       fallback: 'I can help with <strong>products, services, prices, location</strong> and <strong>contact</strong>. You can also chat with us directly on WhatsApp.',
       thanks: 'You\u2019re welcome! \uD83D\uDE4F Anything else I can help you with?',
       quoteNudge: 'Would you like a free quote for this?',
-      waLabel: 'WhatsApp', callLabel: 'Call', mapLabel: 'Directions'
+      waLabel: 'WhatsApp', callLabel: 'Call', mapLabel: 'Directions', instaLabel: 'Instagram', instaReply: 'See our latest videos, reels and installation updates on Instagram — <strong>@lo.kesh5907</strong>. Tap Follow to stay updated.'
     },
     kn: {
       launch: 'ಚಾಟ್ ಮಾಡಿ', title: 'ಸಹಾಯ ಸಹಾಯಕ', status: 'ಆನ್‌ಲೈನ್ · ನಾವು ಬೇಗ ಉತ್ತರಿಸುತ್ತೇವೆ',
       close: 'ಚಾಟ್ ಮುಚ್ಚಿ', placeholder: 'ನಿಮ್ಮ ಪ್ರಶ್ನೆ ಟೈಪ್ ಮಾಡಿ…', send: 'ಕಳುಹಿಸಿ',
       greeting: 'ನಮಸ್ಕಾರ! \uD83D\uDE4F ನಾನು ಶ್ರೀ ಅನ್ನಪೂರ್ಣೇಶ್ವರಿ ಎಲೆಕ್ಟ್ರಿಕಲ್ಸ್ ಸಹಾಯಕ. ಉತ್ಪನ್ನಗಳು, ಸೇವೆಗಳು, ಸ್ಥಳ ಅಥವಾ ಸಂಪರ್ಕದ ಬಗ್ಗೆ ಕೇಳಿ — ಅಥವಾ ಕೆಳಗಿನ ಆಯ್ಕೆ ಆರಿಸಿ.',
-      chips: { products: 'ಉತ್ಪನ್ನಗಳು', services: 'ಸೇವೆಗಳು', quote: 'ಕೊಟೇಶನ್', location: 'ಸ್ಥಳ', contact: 'ಸಂಪರ್ಕ', brands: 'ಬ್ರ್ಯಾಂಡ್‌ಗಳು' },
+      chips: { products: 'ಉತ್ಪನ್ನಗಳು', services: 'ಸೇವೆಗಳು', quote: 'ಕೊಟೇಶನ್', location: 'ಸ್ಥಳ', contact: 'ಸಂಪರ್ಕ', brands: 'ಬ್ರ್ಯಾಂಡ್‌ಗಳು', instagram: 'ಇನ್‌ಸ್ಟಾಗ್ರಾಂ' },
       productsIntro: 'ನಾವು ಸಂಪೂರ್ಣ ಸೌರ, ನೀರು ಮತ್ತು ವಿದ್ಯುತ್ ಪರಿಹಾರಗಳನ್ನು ನೀಡುತ್ತೇವೆ:',
       productsOutro: 'ಯಾವುದೇ ಉತ್ಪನ್ನದ ಬಗ್ಗೆ ಕೇಳಿ ಅಥವಾ <strong>ಕೊಟೇಶನ್</strong> ಒತ್ತಿ.',
       servicesIntro: 'ನಮ್ಮ ಸೇವೆಗಳು:',
@@ -76,13 +78,13 @@
       fallback: 'ನಾನು <strong>ಉತ್ಪನ್ನಗಳು, ಸೇವೆಗಳು, ಬೆಲೆ, ಸ್ಥಳ</strong> ಮತ್ತು <strong>ಸಂಪರ್ಕ</strong>ದ ಬಗ್ಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. WhatsApp ನಲ್ಲಿಯೂ ಚಾಟ್ ಮಾಡಬಹುದು.',
       thanks: 'ಸ್ವಾಗತ! \uD83D\uDE4F ಇನ್ನೇನಾದರೂ ಸಹಾಯ ಬೇಕೇ?',
       quoteNudge: 'ಇದಕ್ಕೆ ಉಚಿತ ಕೊಟೇಶನ್ ಬೇಕೇ?',
-      waLabel: 'WhatsApp', callLabel: 'ಕರೆ', mapLabel: 'ದಾರಿ'
+      waLabel: 'WhatsApp', callLabel: 'ಕರೆ', mapLabel: 'ದಾರಿ', instaLabel: 'ಇನ್‌ಸ್ಟಾಗ್ರಾಂ', instaReply: 'ನಮ್ಮ ಇತ್ತೀಚಿನ ವೀಡಿಯೊ, ರೀಲ್ಸ್ ಮತ್ತು ಅಳವಡಿಕೆ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಗ್ರಾಂನಲ್ಲಿ ನೋಡಿ — <strong>@lo.kesh5907</strong>.'
     },
     hi: {
       launch: 'चैट करें', title: 'सहायता सहायक', status: 'ऑनलाइन · हम जल्दी जवाब देते हैं',
       close: 'चैट बंद करें', placeholder: 'अपना सवाल लिखें…', send: 'भेजें',
       greeting: 'नमस्ते! \uD83D\uDE4F मैं श्री अन्नपूर्णेश्वरी इलेक्ट्रिकल्स सहायक हूँ। उत्पाद, सेवाएँ, स्थान या संपर्क के बारे में पूछें — या नीचे विकल्प चुनें।',
-      chips: { products: 'उत्पाद', services: 'सेवाएँ', quote: 'कोटेशन लें', location: 'स्थान', contact: 'संपर्क', brands: 'ब्रांड' },
+      chips: { products: 'उत्पाद', services: 'सेवाएँ', quote: 'कोटेशन लें', location: 'स्थान', contact: 'संपर्क', brands: 'ब्रांड', instagram: 'इंस्टाग्राम' },
       productsIntro: 'हम संपूर्ण सोलर, वॉटर और पावर समाधान देते हैं:',
       productsOutro: 'किसी भी उत्पाद के बारे में पूछें, या <strong>कोटेशन लें</strong> दबाएँ।',
       servicesIntro: 'हमारी सेवाएँ:',
@@ -100,13 +102,13 @@
       fallback: 'मैं <strong>उत्पाद, सेवाएँ, कीमत, स्थान</strong> और <strong>संपर्क</strong> में मदद कर सकता हूँ। आप सीधे WhatsApp पर भी चैट कर सकते हैं।',
       thanks: 'आपका स्वागत है! \uD83D\uDE4F और कुछ मदद चाहिए?',
       quoteNudge: 'क्या आप इसके लिए मुफ़्त कोटेशन चाहते हैं?',
-      waLabel: 'WhatsApp', callLabel: 'कॉल', mapLabel: 'रास्ता'
+      waLabel: 'WhatsApp', callLabel: 'कॉल', mapLabel: 'रास्ता', instaLabel: 'इंस्टाग्राम', instaReply: 'हमारे नए वीडियो, रील्स और इंस्टॉलेशन अपडेट इंस्टाग्राम पर देखें — <strong>@lo.kesh5907</strong>.'
     },
     te: {
       launch: 'చాట్ చేయండి', title: 'సహాయ సహాయకుడు', status: 'ఆన్‌లైన్ · మేము త్వరగా స్పందిస్తాము',
       close: 'చాట్ మూసివేయి', placeholder: 'మీ ప్రశ్న టైప్ చేయండి…', send: 'పంపండి',
       greeting: 'నమస్తే! \uD83D\uDE4F నేను శ్రీ అన్నపూర్ణేశ్వరి ఎలక్ట్రికల్స్ సహాయకుడిని. ఉత్పత్తులు, సేవలు, స్థానం లేదా సంప్రదింపుల గురించి అడగండి — లేదా కింద ఎంపిక ఎంచుకోండి.',
-      chips: { products: 'ఉత్పత్తులు', services: 'సేవలు', quote: 'కొటేషన్', location: 'స్థానం', contact: 'సంప్రదించండి', brands: 'బ్రాండ్‌లు' },
+      chips: { products: 'ఉత్పత్తులు', services: 'సేవలు', quote: 'కొటేషన్', location: 'స్థానం', contact: 'సంప్రదించండి', brands: 'బ్రాండ్‌లు', instagram: 'ఇన్‌స్టాగ్రామ్' },
       productsIntro: 'మేము సంపూర్ణ సోలార్, నీరు మరియు పవర్ పరిష్కారాలను అందిస్తాము:',
       productsOutro: 'ఏదైనా ఉత్పత్తి గురించి అడగండి, లేదా <strong>కొటేషన్</strong> నొక్కండి.',
       servicesIntro: 'మా సేవలు:',
@@ -124,13 +126,13 @@
       fallback: 'నేను <strong>ఉత్పత్తులు, సేవలు, ధర, స్థానం</strong> మరియు <strong>సంప్రదింపు</strong>లో సహాయం చేయగలను. మీరు నేరుగా WhatsAppలో కూడా చాట్ చేయవచ్చు.',
       thanks: 'స్వాగతం! \uD83D\uDE4F ఇంకేమైనా సహాయం కావాలా?',
       quoteNudge: 'దీనికి ఉచిత కొటేషన్ కావాలా?',
-      waLabel: 'WhatsApp', callLabel: 'కాల్', mapLabel: 'దారి'
+      waLabel: 'WhatsApp', callLabel: 'కాల్', mapLabel: 'దారి', instaLabel: 'ఇన్‌స్టాగ్రామ్', instaReply: 'మా తాజా వీడియోలు, రీల్స్ మరియు ఇన్‌స్టాలేషన్ అప్‌డేట్‌లను ఇన్‌స్టాగ్రామ్‌లో చూడండి — <strong>@lo.kesh5907</strong>.'
     },
     ta: {
       launch: 'அரட்டை', title: 'உதவி உதவியாளர்', status: 'ஆன்லைன் · விரைவில் பதிலளிப்போம்',
       close: 'அரட்டையை மூடு', placeholder: 'உங்கள் கேள்வியை தட்டச்சு செய்யவும்…', send: 'அனுப்பு',
       greeting: 'வணக்கம்! \uD83D\uDE4F நான் ஸ்ரீ அன்னபூர்ணேஸ்வரி எலக்ட்ரிக்கல்ஸ் உதவியாளர். தயாரிப்புகள், சேவைகள், இடம் அல்லது தொடர்பு பற்றி கேளுங்கள் — அல்லது கீழே தேர்வு செய்யுங்கள்.',
-      chips: { products: 'தயாரிப்புகள்', services: 'சேவைகள்', quote: 'மதிப்பீடு', location: 'இடம்', contact: 'தொடர்பு', brands: 'பிராண்டுகள்' },
+      chips: { products: 'தயாரிப்புகள்', services: 'சேவைகள்', quote: 'மதிப்பீடு', location: 'இடம்', contact: 'தொடர்பு', brands: 'பிராண்டுகள்', instagram: 'இன்ஸ்டாகிராம்' },
       productsIntro: 'நாங்கள் முழுமையான சோலார், நீர் மற்றும் பவர் தீர்வுகளை வழங்குகிறோம்:',
       productsOutro: 'எந்த தயாரிப்பு பற்றியும் கேளுங்கள், அல்லது <strong>மதிப்பீடு</strong> தட்டவும்.',
       servicesIntro: 'எங்கள் சேவைகள்:',
@@ -148,7 +150,7 @@
       fallback: 'நான் <strong>தயாரிப்புகள், சேவைகள், விலை, இடம்</strong> மற்றும் <strong>தொடர்பு</strong> குறித்து உதவ முடியும். நேரடியாக WhatsAppலும் அரட்டையடிக்கலாம்.',
       thanks: 'நல்வரவு! \uD83D\uDE4F வேறு ஏதேனும் உதவி வேண்டுமா?',
       quoteNudge: 'இதற்கு இலவச மதிப்பீடு வேண்டுமா?',
-      waLabel: 'WhatsApp', callLabel: 'அழை', mapLabel: 'வழி'
+      waLabel: 'WhatsApp', callLabel: 'அழை', mapLabel: 'வழி', instaLabel: 'இன்ஸ்டாகிராம்', instaReply: 'எங்கள் சமீபத்திய வீடியோக்கள், ரீல்ஸ் மற்றும் நிறுவல் புதுப்பிப்புகளை இன்ஸ்டாகிராமில் காணுங்கள் — <strong>@lo.kesh5907</strong>.'
     }
   };
 
@@ -175,6 +177,7 @@
     { id: 'area', k: ['karnataka', 'area', 'serve', 'service area', 'deliver', 'cover', 'davangere'] },
     { id: 'about', k: ['about', 'who are', 'experience', 'years', 'established', 'since', 'owner', 'proprietor', 'lokesh'] },
     { id: 'products', k: ['product', 'products', 'items', 'sell', 'catalogue', 'catalog', 'buy', 'what do you'] },
+    { id: 'instagram', k: ['instagram', 'insta', 'reel', 'reels', 'follow', 'social', 'video', 'videos', 'page'] },
     { id: 'thanks', k: ['thank', 'thanks', 'super', 'great', 'ok', 'okay'] }
   ];
   var PRODUCT_INDEX = { p0: 0, p1: 1, p2: 2, p3: 3, p4: 4, p5: 5, p6: 6, p7: 7, p8: 8 };
@@ -218,7 +221,8 @@
       case 'brands': html = u.brandsIntro + listFrom(u.brandsList); chips = ['products', 'quote', 'contact']; break;
       case 'quote': html = u.quoteText; links = ['wa', 'call']; chips = ['products', 'location', 'contact']; break;
       case 'location': html = u.locationText; links = ['map', 'call']; chips = ['contact', 'products', 'quote']; break;
-      case 'contact': html = u.contactText + listFrom(u.contactLines); links = ['wa', 'call']; chips = ['location', 'quote', 'products']; break;
+      case 'contact': html = u.contactText + listFrom(u.contactLines); links = ['wa', 'call', 'insta']; chips = ['location', 'instagram', 'quote']; break;
+      case 'instagram': html = u.instaReply; links = ['insta', 'wa']; chips = ['products', 'contact', 'quote']; break;
       case 'hours': html = u.hoursText; links = ['call', 'wa']; chips = ['location', 'contact', 'products']; break;
       case 'area': html = u.areaText; links = ['wa']; chips = ['products', 'location', 'contact']; break;
       case 'about': html = u.aboutText; links = ['wa']; chips = ['products', 'services', 'brands']; break;
@@ -235,7 +239,8 @@
     send: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 9-18 9 4-9-4-9zm5.5 9L6 16.9 15.8 12 6 7.1 8.5 12z"/></svg>',
     wa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2z"/></svg>',
     call: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>',
-    map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>'
+    map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>',
+    insta: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm4.75-3a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/></svg>'
   };
 
   var launch, panel, body, chipsBar, input, form, titleEl, statusEl, closeBtn, launchLabel;
@@ -246,6 +251,7 @@
     if (type === 'wa') return '<a class="is-wa" href="' + wa('') + '" target="_blank" rel="noopener">' + ICON.wa + u.waLabel + '</a>';
     if (type === 'call') return '<a class="is-call" href="tel:' + BIZ.tel + '">' + ICON.call + u.callLabel + '</a>';
     if (type === 'map') return '<a class="is-map" href="' + BIZ.maps + '" target="_blank" rel="noopener">' + ICON.map + u.mapLabel + '</a>';
+    if (type === 'insta') return '<a class="is-insta" href="' + BIZ.instagram + '" target="_blank" rel="noopener">' + ICON.insta + (u.instaLabel || 'Instagram') + '</a>';
     return '';
   }
 
